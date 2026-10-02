@@ -6,7 +6,15 @@ struct VoltIQApp: App {
     var body: some Scene {
         WindowGroup {
             RootView().environmentObject(store)
-                .preferredColorScheme(store.profile?.preferences.appearance == .system ? nil : (store.profile?.preferences.appearance == .dark ? .dark : .light))
+                .preferredColorScheme(colorScheme(for: store.profile?.preferences.appearance ?? .system))
+        }
+    }
+
+    private func colorScheme(for appearance: Appearance) -> ColorScheme? {
+        switch appearance {
+        case .system: return nil
+        case .light: return .light
+        case .dark: return .dark
         }
     }
 }

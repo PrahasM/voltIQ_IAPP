@@ -62,7 +62,7 @@ final class AppStoreTests: XCTestCase {
         XCTAssertEqual(store.profile?.preferences.gstTreatment, .added)
         store.setRate(15)
         XCTAssertNil(store.profile?.preferences.operatorID)
-        XCTAssertEqual(store.profile?.preferences.gstTreatment, .none)
+        XCTAssertEqual(store.profile?.preferences.gstTreatment, GSTTreatment.none)
         var draft = ChargeDraft()
         draft.start = 20; draft.end = 80; draft.billed = 40; draft.amount = 600
         for _ in 0..<3 { try store.saveCharge(draft, receipt: Data([1, 2, 3])) }

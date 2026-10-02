@@ -62,9 +62,9 @@ struct CalculatorView: View {
                     Spacer()
                     Text("\(Display.money(prefs.rate)) / kWh").font(.headline).monospacedDigit()
                 }
-                Slider(value: Binding(get: { prefs.rate }, set: { store.setRate($0) }), in: min(5, prefs.rate)...max(40, prefs.rate), step: 0.5)
+                Slider(value: Binding(get: { min(max(prefs.rate, 5), 40) }, set: { store.setRate($0) }), in: 5...40, step: 0.5)
                     .frame(minHeight: 48).accessibilityLabel("Rate in rupees per kWh").accessibilityValue(Display.money(prefs.rate))
-                HStack { Text(Display.money(min(5, prefs.rate))); Spacer(); Text(Display.money(max(40, prefs.rate))) }.font(.caption).foregroundStyle(.secondary).monospacedDigit()
+                HStack { Text(Display.money(5)); Spacer(); Text(Display.money(40)) }.font(.caption).foregroundStyle(.secondary).monospacedDigit()
                 Toggle(prefs.operatorID == nil ? "Include 18% GST" : "Rate includes 18% GST", isOn: store.preference(\.gstIncluded, fallback: true)).frame(minHeight: 48)
                 Text(prefs.gstTreatment.label).font(.caption.weight(.semibold)).foregroundStyle(.tint)
                 Text("Charger power").font(.subheadline.weight(.medium))
