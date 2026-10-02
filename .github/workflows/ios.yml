@@ -1,0 +1,15 @@
+name: iOS
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Core tests
+        run: swift test
+      - name: Build iOS 16 app and typecheck SwiftUI
+        run: xcodebuild -project VoltIQ.xcodeproj -scheme VoltIQ -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+      - name: App and persistence tests in Simulator
+        run: |
+          DEVICE_ID=$(xcrun simctl list devices available -j | python3 -c 'import json,sys; d=json.load(sys.stdin); print(next(x["udid"] for key,items in d["devices"].items() if "iOS" in key for x in items if "iPhone" in x["name"]))')
+          xcodebuild -project VoltIQ.xcodeproj -scheme VoltIQ -destination "platform=iOS Simulator,id=$DEVICE_ID" CODE_SIGNING_ALLOWED=NO test

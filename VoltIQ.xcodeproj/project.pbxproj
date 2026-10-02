@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = "1";
+	classes = {
+
+	};
+	objectVersion = "56";
+	objects = {
+		277600F1EC335E34F9085ED8 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/AppStore.swift";
+			sourceTree = "<group>";
+		};
+		B18743CD1CD7CD448877201D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ChargeLog.swift";
+			sourceTree = "<group>";
+		};
+		EDE0947A53BA1D5DA4A8622D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ChargingCalculator.swift";
+			sourceTree = "<group>";
+		};
+		2E48EEFD13CBAA562767106A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/DeviceRepository.swift";
+			sourceTree = "<group>";
+		};
+		6C50CC45C648CEF11D939104 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/Models.swift";
+			sourceTree = "<group>";
+		};
+		528EC0678BF3A11F2059FDB9 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/CalculatorView.swift";
+			sourceTree = "<group>";
+		};
+		36908386E2EEAFE97A2CE3AE = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/ChargeFormView.swift";
+			sourceTree = "<group>";
+		};
+		47AB45A3C21487B6A7A8FB40 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/HistoryView.swift";
+			sourceTree = "<group>";
+		};
+		4DD2A92909D7EB2473023763 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/SettingsView.swift";
+			sourceTree = "<group>";
+		};
+		99C5116DBEEC2B8ADE9EC144 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/Theme.swift";
+			sourceTree = "<group>";
+		};
+		09340EE16BE304C927BF0AA2 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/UserPickerView.swift";
+			sourceTree = "<group>";
+		};
+		E48D32D724A5CCD0FB02D822 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/VoltIQApp.swift";
+			sourceTree = "<group>";
+		};
+		D00F8A773942D94746B0736D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/CalculatorTests.swift";
+			sourceTree = "<group>";
+		};
+		2713143B0223166AB55FA981 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/ChargeLogTests.swift";
+			sourceTree = "<group>";
+		};
+		73022774A278CC06331B05ED = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/PersistenceTests.swift";
+			sourceTree = "<group>";
+		};
+		6F27476088B18C1727CA111A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "folder.assetcatalog";
+			path = "VoltIQ/Assets.xcassets";
+			sourceTree = "<group>";
+		};
+		572DC8D5A2A8E56751BB838A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.xml";
+			path = "VoltIQ/PrivacyInfo.xcprivacy";
+			sourceTree = "<group>";
+		};
+		3B28D0A0ABD3DE4F788EE855 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.plist.xml";
+			path = "VoltIQ/Info.plist";
+			sourceTree = "<group>";
+		};
+		B9074B1E49FB5A6E382E802D = {
+			isa = "PBXFileReference";
+			explicitFileType = "wrapper.application";
+			path = "VoltIQ.app";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		2837729F05EE4B9FDCABF2CA = {
+			isa = "PBXFileReference";
+			explicitFileType = "wrapper.cfbundle";
+			path = "VoltIQTests.xctest";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		13DC383B5E32270AF16099DF = {
+			isa = "PBXGroup";
+			children = (
+				"277600F1EC335E34F9085ED8",
+				"B18743CD1CD7CD448877201D",
+				"EDE0947A53BA1D5DA4A8622D",
+				"2E48EEFD13CBAA562767106A",
+				"6C50CC45C648CEF11D939104",
+				"528EC0678BF3A11F2059FDB9",
+				"36908386E2EEAFE97A2CE3AE",
+				"47AB45A3C21487B6A7A8FB40",
+				"4DD2A92909D7EB2473023763",
+				"99C5116DBEEC2B8ADE9EC144",
+				"09340EE16BE304C927BF0AA2",
+				"E48D32D724A5CCD0FB02D822",
+				"6F27476088B18C1727CA111A",
+				"572DC8D5A2A8E56751BB838A",
+				"3B28D0A0ABD3DE4F788EE855",
+			);
+			name = "VoltIQ";
+			sourceTree = "<group>";
+		};
+		9AE740F07CC54A0881FC8633 = {
+			isa = "PBXGroup";
+			children = (
+				"D00F8A773942D94746B0736D",
+				"2713143B0223166AB55FA981",
+				"73022774A278CC06331B05ED",
+			);
+			name = "VoltIQTests";
+			sourceTree = "<group>";
+		};
+		FBDC4F23F93125BBEEAE800C = {
+			isa = "PBXGroup";
+			children = (
+				"B9074B1E49FB5A6E382E802D",
+				"2837729F05EE4B9FDCABF2CA",
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		7FEFA489E25E19BEF8A8A2A9 = {
+			isa = "PBXGroup";
+			children = (
+				"13DC383B5E32270AF16099DF",
+				"9AE740F07CC54A0881FC8633",
+				"FBDC4F23F93125BBEEAE800C",
+			);
+			sourceTree = "<group>";
+		};
+		89E1FD6268CC0F221A2BE178 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = "16.0";
+				SDKROOT = "iphoneos";
+				SWIFT_VERSION = "5.0";
+				CLANG_ENABLE_MODULES = "YES";
+				CLANG_ENABLE_OBJC_ARC = "YES";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = "YES";
+				CLANG_WARN_UNREACHABLE_CODE = "YES";
+				GCC_WARN_UNUSED_VARIABLE = "YES";
+				GCC_WARN_UNUSED_FUNCTION = "YES";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG";
+				ENABLE_TESTABILITY = "YES";
+			};
+			name = "Debug";
+		};
+		E6DE6C99132752C914FEF632 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = "16.0";
+				SDKROOT = "iphoneos";
+				SWIFT_VERSION = "5.0";
+				CLANG_ENABLE_MODULES = "YES";
+				CLANG_ENABLE_OBJC_ARC = "YES";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = "YES";
+				CLANG_WARN_UNREACHABLE_CODE = "YES";
+				GCC_WARN_UNUSED_VARIABLE = "YES";
+				GCC_WARN_UNUSED_FUNCTION = "YES";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			};
+			name = "Release";
+		};
+		FA52021448A4AC7DE6CD200E = {
+			isa = "XCConfigurationList";
+			buildConfigurations = (
+				"89E1FD6268CC0F221A2BE178",
+				"E6DE6C99132752C914FEF632",
+			);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Release";
+		};
+		E9B2E96ABC5F6856F2BE79CF = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "VoltIQ/Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = "NO";
+				CURRENT_PROJECT_VERSION = "1";
+				MARKETING_VERSION = "1.0";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+			};
+			name = "Debug";
+		};
+		5A8C91857F674E16E2724F47 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "VoltIQ/Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = "NO";
+				CURRENT_PROJECT_VERSION = "1";
+				MARKETING_VERSION = "1.0";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+			};
+			name = "Release";
+		};
+		0E13D5B4AB66EAE067648B8A = {
+			isa = "XCConfigurationList";
+			buildConfigurations = (
+				"E9B2E96ABC5F6856F2BE79CF",
+				"5A8C91857F674E16E2724F47",
+			);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Release";
+		};
+		94CDAC1FF98D44FF2AFC108B = {
+			isa = "PBXBuildFile";
+			fileRef = "277600F1EC335E34F9085ED8";
+		};
+		D5F8F43EAD6A5D82D6116A93 = {
+			isa = "PBXBuildFile";
+			fileRef = "B18743CD1CD7CD448877201D";
+		};
+		C638D1B10AC35790620E65FB = {
+			isa = "PBXBuildFile";
+			fileRef = "EDE0947A53BA1D5DA4A8622D";
+		};
+		8A14B231AC1E2FB2BEAD46CD = {
+			isa = "PBXBuildFile";
+			fileRef = "2E48EEFD13CBAA562767106A";
+		};
+		D9EF99FBF14291969B2B46C4 = {
+			isa = "PBXBuildFile";
+			fileRef = "6C50CC45C648CEF11D939104";
+		};
+		DB8F8D46382D09B9BBF5883D = {
+			isa = "PBXBuildFile";
+			fileRef = "528EC0678BF3A11F2059FDB9";
+		};
+		B32ADAC3A4BE52F6FCF16A03 = {
+			isa = "PBXBuildFile";
+			fileRef = "36908386E2EEAFE97A2CE3AE";
+		};
+		DAED8677208ED83833F2A62D = {
+			isa = "PBXBuildFile";
+			fileRef = "47AB45A3C21487B6A7A8FB40";
+		};
+		A1338FBDE2B4BD5A96D6109A = {
+			isa = "PBXBuildFile";
+			fileRef = "4DD2A92909D7EB2473023763";
+		};
+		1C2CDABCECEF2DB28A84227E = {
+			isa = "PBXBuildFile";
+			fileRef = "99C5116DBEEC2B8ADE9EC144";
+		};
+		588086D8E9ED048396EBD17C = {
+			isa = "PBXBuildFile";
+			fileRef = "09340EE16BE304C927BF0AA2";
+		};
+		D40CFDF9B526BF56D0B9E4B0 = {
+			isa = "PBXBuildFile";
+			fileRef = "E48D32D724A5CCD0FB02D822";
+		};
+		CB1F8341FDD0D5C6400FDAF8 = {
+			isa = "PBXSourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+				"94CDAC1FF98D44FF2AFC108B",
+				"D5F8F43EAD6A5D82D6116A93",
+				"C638D1B10AC35790620E65FB",
+				"8A14B231AC1E2FB2BEAD46CD",
+				"D9EF99FBF14291969B2B46C4",
+				"DB8F8D46382D09B9BBF5883D",
+				"B32ADAC3A4BE52F6FCF16A03",
+				"DAED8677208ED83833F2A62D",
+				"A1338FBDE2B4BD5A96D6109A",
+				"1C2CDABCECEF2DB28A84227E",
+				"588086D8E9ED048396EBD17C",
+				"D40CFDF9B526BF56D0B9E4B0",
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		2A571BD1E9ABF4F122A8E632 = {
+			isa = "PBXFrameworksBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		6C52B0FF155640A1834565EB = {
+			isa = "PBXBuildFile";
+			fileRef = "6F27476088B18C1727CA111A";
+		};
+		02579902063781AE19CD30EC = {
+			isa = "PBXBuildFile";
+			fileRef = "572DC8D5A2A8E56751BB838A";
+		};
+		39F6BB0BF9908DE3411BF295 = {
+			isa = "PBXResourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+				"6C52B0FF155640A1834565EB",
+				"02579902063781AE19CD30EC",
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		8FC2453ED5EBF1568058C839 = {
+			isa = "PBXNativeTarget";
+			buildConfigurationList = "0E13D5B4AB66EAE067648B8A";
+			buildPhases = (
+				"CB1F8341FDD0D5C6400FDAF8",
+				"2A571BD1E9ABF4F122A8E632",
+				"39F6BB0BF9908DE3411BF295",
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VoltIQ";
+			productName = "VoltIQ";
+			productReference = "B9074B1E49FB5A6E382E802D";
+			productType = "com.apple.product-type.application";
+		};
+		BA223EB12D25C38406B5A691 = {
+			isa = "PBXContainerItemProxy";
+			containerPortal = "98F54143AB4E86B28C3AFEE0";
+			proxyType = "1";
+			remoteGlobalIDString = "8FC2453ED5EBF1568058C839";
+			remoteInfo = "VoltIQ";
+		};
+		58A5D8785D26BBB94CE615BB = {
+			isa = "PBXTargetDependency";
+			target = "8FC2453ED5EBF1568058C839";
+			targetProxy = "BA223EB12D25C38406B5A691";
+		};
+		FCB48D8F88BCDB0ED9FADFD7 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				GENERATE_INFOPLIST_FILE = "YES";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoltIQ.app/VoltIQ";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+			};
+			name = "Debug";
+		};
+		942EEBBACD6C88CAE7F29B29 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				GENERATE_INFOPLIST_FILE = "YES";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoltIQ.app/VoltIQ";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+			};
+			name = "Release";
+		};
+		3FDA45C111940AB7EEC171F1 = {
+			isa = "XCConfigurationList";
+			buildConfigurations = (
+				"FCB48D8F88BCDB0ED9FADFD7",
+				"942EEBBACD6C88CAE7F29B29",
+			);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Release";
+		};
+		370491C374968A9B62BDA13A = {
+			isa = "PBXBuildFile";
+			fileRef = "D00F8A773942D94746B0736D";
+		};
+		B33438B265105AAAA715B534 = {
+			isa = "PBXBuildFile";
+			fileRef = "2713143B0223166AB55FA981";
+		};
+		651AB154BA6A6EE62D92E836 = {
+			isa = "PBXBuildFile";
+			fileRef = "73022774A278CC06331B05ED";
+		};
+		D13161A084ABB15E36E9C5E4 = {
+			isa = "PBXSourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+				"370491C374968A9B62BDA13A",
+				"B33438B265105AAAA715B534",
+				"651AB154BA6A6EE62D92E836",
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		C99E2D31C4EA76F7C528D5F9 = {
+			isa = "PBXFrameworksBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		4589F76226F600D7F9EC797E = {
+			isa = "PBXNativeTarget";
+			buildConfigurationList = "3FDA45C111940AB7EEC171F1";
+			buildPhases = (
+				"D13161A084ABB15E36E9C5E4",
+				"C99E2D31C4EA76F7C528D5F9",
+			);
+			buildRules = (
+			);
+			dependencies = (
+				"58A5D8785D26BBB94CE615BB",
+			);
+			name = "VoltIQTests";
+			productName = "VoltIQTests";
+			productReference = "2837729F05EE4B9FDCABF2CA";
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		98F54143AB4E86B28C3AFEE0 = {
+			isa = "PBXProject";
+			attributes = {
+				LastUpgradeCheck = "1600";
+				TargetAttributes = {
+					8FC2453ED5EBF1568058C839 = {
+						CreatedOnToolsVersion = "16.0";
+					};
+					4589F76226F600D7F9EC797E = {
+						CreatedOnToolsVersion = "16.0";
+						TestTargetID = "8FC2453ED5EBF1568058C839";
+					};
+				};
+			};
+			buildConfigurationList = "FA52021448A4AC7DE6CD200E";
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = "en";
+			hasScannedForEncodings = "0";
+			knownRegions = (
+				"en",
+				"Base",
+			);
+			mainGroup = "7FEFA489E25E19BEF8A8A2A9";
+			productRefGroup = "FBDC4F23F93125BBEEAE800C";
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"8FC2453ED5EBF1568058C839",
+				"4589F76226F600D7F9EC797E",
+			);
+		};
+	};
+	rootObject = "98F54143AB4E86B28C3AFEE0";
+}
