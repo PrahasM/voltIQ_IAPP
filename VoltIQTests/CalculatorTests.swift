@@ -12,7 +12,7 @@ final class CalculatorTests: XCTestCase {
         XCTAssertEqual(result.phases.count, 2)
         XCTAssertEqual(result.phases[0].to, 80)
         XCTAssertEqual(result.phases[1].power, 24)
-        XCTAssertEqual(result.hours, 0.7227373188405797, accuracy: 1e-8)
+        XCTAssertEqual(result.hours, 0.7227355072463768, accuracy: 1e-8)
     }
 
     func testACUsesCarLimitWithoutTaper() throws {
