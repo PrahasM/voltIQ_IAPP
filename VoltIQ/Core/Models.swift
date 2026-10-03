@@ -82,6 +82,8 @@ struct CarSettings: Codable, Equatable {
     var maxACPower = 11.0
     var maxDCPower = 150.0
     var taperPercent = 40.0
+    /// The connector type this driver's car uses; nil means not set (no compatibility filtering).
+    var connectorType: ConnectorType?
 }
 
 struct ChargingOperator: Codable, Equatable, Identifiable {

@@ -38,6 +38,12 @@ final class AppStore: ObservableObject {
         })
     }
 
+    func carConnector() -> Binding<ConnectorType?> {
+        Binding(get: { self.profile?.settings.connectorType }, set: { value in
+            self.updateProfile { $0.settings.connectorType = value }
+        })
+    }
+
     func updateProfile(_ edit: (inout UserProfile) -> Void) {
         guard let index = state.users.firstIndex(where: { $0.id == state.selectedUserID }) else { return }
         var next = state

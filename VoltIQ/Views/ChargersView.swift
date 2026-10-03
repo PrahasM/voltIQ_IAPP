@@ -7,6 +7,7 @@ struct ChargersView: View {
     @Environment(\.openURL) private var openURL
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var model: ChargerDiscoveryViewModel
+    @State private var chargeStation: ChargingStation?
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 20.5937, longitude: 78.9629),
                                                    span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
 
@@ -26,10 +27,11 @@ struct ChargersView: View {
                     }.accessibilityLabel(station.name)
                 }
             }.frame(height: 280)
-            if let station = model.selectedStation { ConnectorsCard(station: station).padding(.horizontal, 20).padding(.top, 12) }
+            if let station = model.selectedStation { ConnectorsCard(station: station, chargeHere: { chargeStation = station }).padding(.horizontal, 20).padding(.top, 12) }
             content
         }
         .background(VoltTheme.background(scheme).ignoresSafeArea())
+        .sheet(item: $chargeStation) { ChargeHereView(station: $0) }
         .task { await model.load() }
         .onChange(of: scenePhase) { phase in if phase == .active, model.state == .permissionDenied { retry() } }
         .onChange(of: model.userLocation) { if let here = $0 { center(here, span: 0.06) } }
@@ -77,6 +79,9 @@ struct ChargersView: View {
                 Text(station.name).font(.headline)
                 if let distance = station.distanceText { Text(distance).font(.subheadline).foregroundStyle(VoltTheme.accent(scheme)) }
                 if let address = station.address { Text(address).font(.caption).foregroundStyle(.secondary) }
+                Text(StationFormatting.connectorSummary(station)).font(.caption)
+                Text("\(StationFormatting.stationAvailability(station)) · \(StationFormatting.provider(station.operatorName)) · \(StationFormatting.price(station.pricePerKWh))")
+                    .font(.caption).foregroundStyle(.secondary)
             }
             .padding(16).frame(maxWidth: .infinity, minHeight: 48, alignment: .leading)
             .background(VoltTheme.card(scheme), in: RoundedRectangle(cornerRadius: 20))
@@ -102,6 +107,7 @@ struct ChargersView: View {
 
 private struct ConnectorsCard: View {
     let station: ChargingStation
+    let chargeHere: () -> Void
     var body: some View {
         Card {
             VStack(alignment: .leading, spacing: 4) {
@@ -120,9 +126,12 @@ private struct ConnectorsCard: View {
                         Text(display.typeText).font(.subheadline.weight(.semibold))
                         Text(display.powerText.hasSuffix("kW") ? "⚡ \(display.powerText)" : display.powerText).monospacedDigit()
                         if let count = display.countText { Text(count).font(.caption).foregroundStyle(.secondary) }
+                        Text([StationFormatting.availability(connector), StationFormatting.updated(connector.availabilityUpdated)].compactMap { $0 }.joined(separator: " · "))
+                            .font(.caption).foregroundStyle(.secondary)
                     }.frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
+            Button(action: chargeHere) { Label("Charge Here", systemImage: "bolt.fill") }.buttonStyle(PrimaryButton())
         }.id("connectors-\(station.id)")
     }
 }

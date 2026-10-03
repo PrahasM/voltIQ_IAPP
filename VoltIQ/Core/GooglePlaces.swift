@@ -57,16 +57,30 @@ enum GooglePlacesMapper {
         }
     }
 
-    // availableCount / outOfServiceCount are deliberately never read (US-03).
+    // Availability fields are optional in the response; absent or malformed values stay nil (unknown).
     private static func connectors(_ options: Any?) -> [RawConnector]? {
         guard let options = options as? [String: Any], let groups = options["connectorAggregation"] as? [Any] else { return nil }
         var result: [RawConnector] = []
         for case let group as [String: Any] in groups {
             result.append(RawConnector(type: connectorType(group["type"] as? String),
                                        maxPowerKW: number(group["maxChargeRateKw"]),
-                                       count: number(group["count"]).flatMap { $0.isFinite && $0 == $0.rounded() ? Int($0) : nil }))
+                                       count: integer(group["count"]),
+                                       availableCount: integer(group["availableCount"]),
+                                       outOfServiceCount: integer(group["outOfServiceCount"]),
+                                       availabilityUpdated: (group["availabilityLastUpdateTime"] as? String).flatMap(date)))
         }
         return result.isEmpty ? nil : result
+    }
+
+    private static func integer(_ value: Any?) -> Int? {
+        number(value).flatMap { $0.isFinite && $0 == $0.rounded() && abs($0) < 1e9 ? Int($0) : nil }
+    }
+
+    private static func date(_ text: String) -> Date? {
+        let plain = ISO8601DateFormatter()
+        let fractional = ISO8601DateFormatter()
+        fractional.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return fractional.date(from: text) ?? plain.date(from: text)
     }
 
     private static func number(_ value: Any?) -> Double? {
