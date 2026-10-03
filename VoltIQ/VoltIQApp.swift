@@ -30,6 +30,7 @@ struct RootView: View {
             else {
                 TabView {
                     navigation("Calculator") { CalculatorView() }.tabItem { Label("Calculator", systemImage: "bolt.fill") }
+                    navigation("Chargers") { ChargersView() }.tabItem { Label("Chargers", systemImage: "ev.charger") }
                     navigation("History") { HistoryView() }.tabItem { Label("History", systemImage: "clock.arrow.circlepath") }
                     navigation("Settings") { SettingsView() }.tabItem { Label("Settings", systemImage: "slider.horizontal.3") }
                 }
