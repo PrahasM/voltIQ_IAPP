@@ -105,10 +105,10 @@ final class ConnectorDetailsTests: XCTestCase {
         XCTAssertEqual(try GooglePlacesMapper.map(Data("{}".utf8)), [])
     }
 
-    func testAvailabilityFieldsAreNeverModelled() throws {
+    func testTotalCountIsNotAffectedByAvailabilityFields() throws {
         let station = StationNormalizer.normalize(try GooglePlacesMapper.map(response([place("p", aggregation: "[\(group("TYPE_2", "22", 3))]")])), from: nil, limit: 1)[0]
-        XCTAssertEqual(station.connectors.connectors[0].count, 3)   // total count, not availableCount (1)
-        XCTAssertFalse(String(describing: station).contains("available:"))
+        XCTAssertEqual(station.connectors.connectors[0].count, 3)   // total count, never availableCount
+        XCTAssertEqual(station.connectors.connectors[0].availableCount, 1)
     }
 
     // test 13
@@ -146,6 +146,7 @@ final class ConnectorDetailsTests: XCTestCase {
         let mask = request.value(forHTTPHeaderField: "X-Goog-FieldMask") ?? ""
         XCTAssertTrue(mask.contains("places.evChargeOptions"))
         XCTAssertFalse(mask.lowercased().contains("pric"))
+        XCTAssertFalse(mask.contains("websiteUri"))
         let body = String(decoding: request.httpBody!, as: UTF8.self)
         XCTAssertTrue(body.contains("electric_vehicle_charging_station"))
         XCTAssertTrue(body.contains("5000"))

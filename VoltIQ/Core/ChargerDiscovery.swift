@@ -24,7 +24,7 @@ struct ChargerDiscoveryConfig: Equatable {
     static let `default` = ChargerDiscoveryConfig()
 }
 
-enum ConnectorType: String, Equatable, Hashable, CaseIterable {
+enum ConnectorType: String, Codable, Equatable, Hashable, CaseIterable {
     case ccs1, ccs2, type2, chademo, nacs, other, unknown
 }
 
@@ -32,6 +32,10 @@ struct ChargingConnector: Identifiable, Equatable, Hashable {
     let type: ConnectorType
     let maxPowerKW: Double?
     let count: Int?
+    /// Live availability, only when the provider supplies it; nil means unknown.
+    var availableCount: Int? = nil
+    var outOfServiceCount: Int? = nil
+    var availabilityUpdated: Date? = nil
 
     var id: String { "\(type.rawValue)|\(maxPowerKW.map { String($0) } ?? "-")" }
 }
@@ -47,6 +51,9 @@ struct RawConnector: Equatable {
     var type: ConnectorType
     var maxPowerKW: Double?
     var count: Int?
+    var availableCount: Int? = nil
+    var outOfServiceCount: Int? = nil
+    var availabilityUpdated: Date? = nil
 }
 
 struct ChargingStation: Identifiable, Equatable, Hashable {
@@ -58,6 +65,10 @@ struct ChargingStation: Identifiable, Equatable, Hashable {
     let distanceMeters: Double?
     let source: String
     var connectors: ConnectorDetails = .unavailable
+    /// Not supplied by any current provider; shown as unavailable.
+    var operatorName: String? = nil
+    var pricePerKWh: Double? = nil
+    var providerURL: URL? = nil
 
     var coordinate: Coordinate { Coordinate(latitude: latitude, longitude: longitude) }
 
@@ -129,23 +140,36 @@ enum StationNormalizer {
     static func connectors(_ raw: [RawConnector]?) -> ConnectorDetails {
         guard let raw, !raw.isEmpty else { return .unavailable }
         struct Key: Hashable { let type: ConnectorType; let power: Double? }
+        struct Acc { var count: Int?; var available: Int?; var outOfService: Int?; var updated: Date? }
         var order: [Key] = []
-        var counts: [Key: Int?] = [:]
+        var groups: [Key: Acc] = [:]
+        func add(_ a: Int?, _ b: Int?) -> Int? { a == nil && b == nil ? nil : (a ?? 0) + (b ?? 0) }
         for item in raw {
             let power = item.maxPowerKW.flatMap { $0.isFinite && $0 > 0 ? ($0 * 10).rounded() / 10 : nil }
             let count = item.count.flatMap { $0 >= 1 ? $0 : nil }
+            var available = item.availableCount.flatMap { $0 >= 0 ? $0 : nil }
+            var outOfService = item.outOfServiceCount.flatMap { $0 >= 0 ? $0 : nil }
+            if let total = count, let a = available, a > total { available = nil }
+            if let total = count, let o = outOfService, o > total { outOfService = nil }
             let key = Key(type: item.type, power: power)
-            if let existing = counts[key] {
-                counts[key] = (existing == nil && count == nil) ? nil : (existing ?? 0) + (count ?? 0)
+            if var existing = groups[key] {
+                existing.count = add(existing.count, count)
+                existing.available = add(existing.available, available)
+                existing.outOfService = add(existing.outOfService, outOfService)
+                existing.updated = [existing.updated, item.availabilityUpdated].compactMap { $0 }.max()
+                groups[key] = existing
             } else {
                 order.append(key)
-                counts[key] = .some(count)
+                groups[key] = Acc(count: count, available: available, outOfService: outOfService, updated: item.availabilityUpdated)
             }
         }
         let rank = Dictionary(uniqueKeysWithValues: ConnectorType.allCases.enumerated().map { ($1, $0) })
-        let groups = order.map { ChargingConnector(type: $0.type, maxPowerKW: $0.power, count: counts[$0] ?? nil) }
-            .sorted { (rank[$0.type]!, -($0.maxPowerKW ?? -1)) < (rank[$1.type]!, -($1.maxPowerKW ?? -1)) }
-        return groups.isEmpty ? .unavailable : .available(groups)
+        let result = order.map { key -> ChargingConnector in
+            let g = groups[key]!
+            return ChargingConnector(type: key.type, maxPowerKW: key.power, count: g.count, availableCount: g.available,
+                                     outOfServiceCount: g.outOfService, availabilityUpdated: g.updated)
+        }.sorted { (rank[$0.type]!, -($0.maxPowerKW ?? -1)) < (rank[$1.type]!, -($1.maxPowerKW ?? -1)) }
+        return result.isEmpty ? .unavailable : .available(result)
     }
 
     private static func clean(_ text: String?) -> String? {

@@ -31,6 +31,13 @@ struct SettingsView: View {
                 Label("Your car", systemImage: "car.fill").font(.headline)
                 NumberField(title: "Car max AC power", value: store.setting(\.maxACPower, fallback: 11), suffix: "kW")
                 NumberField(title: "Car max DC power", value: store.setting(\.maxDCPower, fallback: 150), suffix: "kW")
+                Picker("My car's connector", selection: store.carConnector()) {
+                    Text("Not set").tag(ConnectorType?.none)
+                    ForEach([ConnectorType.ccs2, .ccs1, .type2, .chademo, .nacs], id: \.self) { type in
+                        Text(ConnectorDisplay(ChargingConnector(type: type, maxPowerKW: nil, count: nil)).typeText).tag(ConnectorType?.some(type))
+                    }
+                }.frame(minHeight: 48)
+                Text("Used by Chargers to prefer connectors that fit your car. Not set shows every connector without filtering.").font(.caption).foregroundStyle(.secondary)
                 Text("Power limits must be 1–1000 kW. Effective power is the lower of the charger and car limits.").font(.caption).foregroundStyle(.secondary)
                 HStack { Text("DC power above 80%"); Spacer(); Text("\(Display.number(profile.settings.taperPercent, digits: 0))%").monospacedDigit() }
                 Slider(value: store.setting(\.taperPercent, fallback: 40), in: 10...100, step: 1).frame(minHeight: 48).accessibilityLabel("DC taper power percent")

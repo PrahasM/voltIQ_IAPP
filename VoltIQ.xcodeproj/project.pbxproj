@@ -1,450 +1,750 @@
 // !$*UTF8*$!
 {
-	archiveVersion = 1;
+	archiveVersion = "1";
 	classes = {
+
 	};
-	objectVersion = 56;
+	objectVersion = "56";
 	objects = {
-
-/* Begin PBXBuildFile section */
-		02579902063781AE19CD30EC /* VoltIQ/PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 572DC8D5A2A8E56751BB838A /* VoltIQ/PrivacyInfo.xcprivacy */; };
-		1C2CDABCECEF2DB28A84227E /* VoltIQ/Views/Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C5116DBEEC2B8ADE9EC144 /* VoltIQ/Views/Theme.swift */; };
-		23E8155EB80A13E6F0E1C653 /* VoltIQTests/ChargerDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4241E2C211518858B5DA1B0 /* VoltIQTests/ChargerDiscoveryTests.swift */; };
-		370491C374968A9B62BDA13A /* VoltIQTests/CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F8A773942D94746B0736D /* VoltIQTests/CalculatorTests.swift */; };
-		45944EBF8C724B6E63AD8185 /* VoltIQ/Services/GooglePlacesChargerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8189966B58326F7BF9788 /* VoltIQ/Services/GooglePlacesChargerProvider.swift */; };
-		4D6784BEF5CC6FA7581A4C7B /* VoltIQ/Core/ConnectorFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68293D5A625BE566762F2AE7 /* VoltIQ/Core/ConnectorFormatting.swift */; };
-		5837E2A317A0C58EBB4039FE /* VoltIQ/Services/MapKitChargerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92987EE86131305BD9083B /* VoltIQ/Services/MapKitChargerProvider.swift */; };
-		588086D8E9ED048396EBD17C /* VoltIQ/Views/UserPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09340EE16BE304C927BF0AA2 /* VoltIQ/Views/UserPickerView.swift */; };
-		651AB154BA6A6EE62D92E836 /* VoltIQTests/PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73022774A278CC06331B05ED /* VoltIQTests/PersistenceTests.swift */; };
-		6C52B0FF155640A1834565EB /* VoltIQ/Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F27476088B18C1727CA111A /* VoltIQ/Assets.xcassets */; };
-		8488C42972D3C265A0372E0A /* VoltIQ/Core/ChargerDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0FA83AD2D17642212A294 /* VoltIQ/Core/ChargerDiscovery.swift */; };
-		8A14B231AC1E2FB2BEAD46CD /* VoltIQ/Core/DeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48EEFD13CBAA562767106A /* VoltIQ/Core/DeviceRepository.swift */; };
-		8B3F8651CCB12BF4E45F2DAF /* VoltIQ/Core/GooglePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA689CF93B7C93621E7823 /* VoltIQ/Core/GooglePlaces.swift */; };
-		94CDAC1FF98D44FF2AFC108B /* VoltIQ/AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277600F1EC335E34F9085ED8 /* VoltIQ/AppStore.swift */; };
-		A1338FBDE2B4BD5A96D6109A /* VoltIQ/Views/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2A92909D7EB2473023763 /* VoltIQ/Views/SettingsView.swift */; };
-		B32ADAC3A4BE52F6FCF16A03 /* VoltIQ/Views/ChargeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36908386E2EEAFE97A2CE3AE /* VoltIQ/Views/ChargeFormView.swift */; };
-		B33438B265105AAAA715B534 /* VoltIQTests/ChargeLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2713143B0223166AB55FA981 /* VoltIQTests/ChargeLogTests.swift */; };
-		C48C0174F0E32930B841BB76 /* VoltIQ/Views/ChargersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D76E1AAFAC029B78A55E580 /* VoltIQ/Views/ChargersView.swift */; };
-		C519C46CD1941477E1833AB2 /* VoltIQ/Services/CoreLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F53D7D02F2BCB630FFE4E9 /* VoltIQ/Services/CoreLocationService.swift */; };
-		C638D1B10AC35790620E65FB /* VoltIQ/Core/ChargingCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE0947A53BA1D5DA4A8622D /* VoltIQ/Core/ChargingCalculator.swift */; };
-		D40CFDF9B526BF56D0B9E4B0 /* VoltIQ/VoltIQApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48D32D724A5CCD0FB02D822 /* VoltIQ/VoltIQApp.swift */; };
-		D5F8F43EAD6A5D82D6116A93 /* VoltIQ/Core/ChargeLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18743CD1CD7CD448877201D /* VoltIQ/Core/ChargeLog.swift */; };
-		D9EF99FBF14291969B2B46C4 /* VoltIQ/Core/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C50CC45C648CEF11D939104 /* VoltIQ/Core/Models.swift */; };
-		DAED8677208ED83833F2A62D /* VoltIQ/Views/HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB45A3C21487B6A7A8FB40 /* VoltIQ/Views/HistoryView.swift */; };
-		DB8F8D46382D09B9BBF5883D /* VoltIQ/Views/CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EC0678BF3A11F2059FDB9 /* VoltIQ/Views/CalculatorView.swift */; };
-		F03E24AA83236AF1C90EC797 /* VoltIQTests/ConnectorDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA912B94C7305B91CC4EC6 /* VoltIQTests/ConnectorDetailsTests.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		BA223EB12D25C38406B5A691 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8FC2453ED5EBF1568058C839;
-			remoteInfo = VoltIQ;
+		277600F1EC335E34F9085ED8 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/AppStore.swift";
+			sourceTree = "<group>";
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		09340EE16BE304C927BF0AA2 /* VoltIQ/Views/UserPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/UserPickerView.swift; sourceTree = "<group>"; };
-		24AA689CF93B7C93621E7823 /* VoltIQ/Core/GooglePlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/GooglePlaces.swift; sourceTree = "<group>"; };
-		2713143B0223166AB55FA981 /* VoltIQTests/ChargeLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/ChargeLogTests.swift; sourceTree = "<group>"; };
-		277600F1EC335E34F9085ED8 /* VoltIQ/AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/AppStore.swift; sourceTree = "<group>"; };
-		2837729F05EE4B9FDCABF2CA /* VoltIQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = VoltIQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E48EEFD13CBAA562767106A /* VoltIQ/Core/DeviceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/DeviceRepository.swift; sourceTree = "<group>"; };
-		36908386E2EEAFE97A2CE3AE /* VoltIQ/Views/ChargeFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/ChargeFormView.swift; sourceTree = "<group>"; };
-		3B28D0A0ABD3DE4F788EE855 /* VoltIQ/Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = VoltIQ/Info.plist; sourceTree = "<group>"; };
-		3D76E1AAFAC029B78A55E580 /* VoltIQ/Views/ChargersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/ChargersView.swift; sourceTree = "<group>"; };
-		47AB45A3C21487B6A7A8FB40 /* VoltIQ/Views/HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/HistoryView.swift; sourceTree = "<group>"; };
-		4DD2A92909D7EB2473023763 /* VoltIQ/Views/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/SettingsView.swift; sourceTree = "<group>"; };
-		4FD8189966B58326F7BF9788 /* VoltIQ/Services/GooglePlacesChargerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Services/GooglePlacesChargerProvider.swift; sourceTree = "<group>"; };
-		528EC0678BF3A11F2059FDB9 /* VoltIQ/Views/CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/CalculatorView.swift; sourceTree = "<group>"; };
-		572DC8D5A2A8E56751BB838A /* VoltIQ/PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = VoltIQ/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		68293D5A625BE566762F2AE7 /* VoltIQ/Core/ConnectorFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ConnectorFormatting.swift; sourceTree = "<group>"; };
-		6C50CC45C648CEF11D939104 /* VoltIQ/Core/Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/Models.swift; sourceTree = "<group>"; };
-		6F27476088B18C1727CA111A /* VoltIQ/Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VoltIQ/Assets.xcassets; sourceTree = "<group>"; };
-		73022774A278CC06331B05ED /* VoltIQTests/PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/PersistenceTests.swift; sourceTree = "<group>"; };
-		7DC1A841A82981F8C39575BB /* Config/App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config/App.xcconfig; sourceTree = "<group>"; };
-		99C5116DBEEC2B8ADE9EC144 /* VoltIQ/Views/Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/Theme.swift; sourceTree = "<group>"; };
-		A4A0FA83AD2D17642212A294 /* VoltIQ/Core/ChargerDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ChargerDiscovery.swift; sourceTree = "<group>"; };
-		AA92987EE86131305BD9083B /* VoltIQ/Services/MapKitChargerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Services/MapKitChargerProvider.swift; sourceTree = "<group>"; };
-		B18743CD1CD7CD448877201D /* VoltIQ/Core/ChargeLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ChargeLog.swift; sourceTree = "<group>"; };
-		B9074B1E49FB5A6E382E802D /* VoltIQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = VoltIQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D00F8A773942D94746B0736D /* VoltIQTests/CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/CalculatorTests.swift; sourceTree = "<group>"; };
-		D8F53D7D02F2BCB630FFE4E9 /* VoltIQ/Services/CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Services/CoreLocationService.swift; sourceTree = "<group>"; };
-		DAEA912B94C7305B91CC4EC6 /* VoltIQTests/ConnectorDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/ConnectorDetailsTests.swift; sourceTree = "<group>"; };
-		E48D32D724A5CCD0FB02D822 /* VoltIQ/VoltIQApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/VoltIQApp.swift; sourceTree = "<group>"; };
-		EDE0947A53BA1D5DA4A8622D /* VoltIQ/Core/ChargingCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ChargingCalculator.swift; sourceTree = "<group>"; };
-		F4241E2C211518858B5DA1B0 /* VoltIQTests/ChargerDiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/ChargerDiscoveryTests.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		2A571BD1E9ABF4F122A8E632 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+		B18743CD1CD7CD448877201D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ChargeLog.swift";
+			sourceTree = "<group>";
 		};
-		C99E2D31C4EA76F7C528D5F9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+		19D4353DAD3976F686065CF9 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ChargePlanner.swift";
+			sourceTree = "<group>";
 		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		13DC383B5E32270AF16099DF /* VoltIQ */ = {
-			isa = PBXGroup;
+		A4A0FA83AD2D17642212A294 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ChargerDiscovery.swift";
+			sourceTree = "<group>";
+		};
+		EDE0947A53BA1D5DA4A8622D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ChargingCalculator.swift";
+			sourceTree = "<group>";
+		};
+		68293D5A625BE566762F2AE7 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/ConnectorFormatting.swift";
+			sourceTree = "<group>";
+		};
+		2E48EEFD13CBAA562767106A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/DeviceRepository.swift";
+			sourceTree = "<group>";
+		};
+		24AA689CF93B7C93621E7823 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/GooglePlaces.swift";
+			sourceTree = "<group>";
+		};
+		6C50CC45C648CEF11D939104 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/Models.swift";
+			sourceTree = "<group>";
+		};
+		B1F6C84B5B865E791DF37742 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/PlannedSession.swift";
+			sourceTree = "<group>";
+		};
+		1ECF29FC417DF0BCC24C29FD = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/Routing.swift";
+			sourceTree = "<group>";
+		};
+		D8F53D7D02F2BCB630FFE4E9 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Services/CoreLocationService.swift";
+			sourceTree = "<group>";
+		};
+		4FD8189966B58326F7BF9788 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Services/GooglePlacesChargerProvider.swift";
+			sourceTree = "<group>";
+		};
+		AA92987EE86131305BD9083B = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Services/MapKitChargerProvider.swift";
+			sourceTree = "<group>";
+		};
+		7F1844018214EBCDFC4884A4 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Services/MapKitRouteProvider.swift";
+			sourceTree = "<group>";
+		};
+		528EC0678BF3A11F2059FDB9 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/CalculatorView.swift";
+			sourceTree = "<group>";
+		};
+		36908386E2EEAFE97A2CE3AE = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/ChargeFormView.swift";
+			sourceTree = "<group>";
+		};
+		DE608DB2A687A2FF76265920 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/ChargeHereView.swift";
+			sourceTree = "<group>";
+		};
+		3D76E1AAFAC029B78A55E580 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/ChargersView.swift";
+			sourceTree = "<group>";
+		};
+		47AB45A3C21487B6A7A8FB40 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/HistoryView.swift";
+			sourceTree = "<group>";
+		};
+		7127429DDDCCB5C0AD6BD5E0 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/RouteView.swift";
+			sourceTree = "<group>";
+		};
+		4DD2A92909D7EB2473023763 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/SettingsView.swift";
+			sourceTree = "<group>";
+		};
+		99C5116DBEEC2B8ADE9EC144 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/Theme.swift";
+			sourceTree = "<group>";
+		};
+		09340EE16BE304C927BF0AA2 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Views/UserPickerView.swift";
+			sourceTree = "<group>";
+		};
+		E48D32D724A5CCD0FB02D822 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/VoltIQApp.swift";
+			sourceTree = "<group>";
+		};
+		D00F8A773942D94746B0736D = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/CalculatorTests.swift";
+			sourceTree = "<group>";
+		};
+		82069FCC9A7A4976D35DF46C = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/ChargeHereTests.swift";
+			sourceTree = "<group>";
+		};
+		2713143B0223166AB55FA981 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/ChargeLogTests.swift";
+			sourceTree = "<group>";
+		};
+		F4241E2C211518858B5DA1B0 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/ChargerDiscoveryTests.swift";
+			sourceTree = "<group>";
+		};
+		DAEA912B94C7305B91CC4EC6 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/ConnectorDetailsTests.swift";
+			sourceTree = "<group>";
+		};
+		73022774A278CC06331B05ED = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/PersistenceTests.swift";
+			sourceTree = "<group>";
+		};
+		5FA47B7688A2564307240979 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/PlannedSessionTests.swift";
+			sourceTree = "<group>";
+		};
+		E3A4826022C42642C71F632C = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/RouteTests.swift";
+			sourceTree = "<group>";
+		};
+		6F27476088B18C1727CA111A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "folder.assetcatalog";
+			path = "VoltIQ/Assets.xcassets";
+			sourceTree = "<group>";
+		};
+		572DC8D5A2A8E56751BB838A = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.xml";
+			path = "VoltIQ/PrivacyInfo.xcprivacy";
+			sourceTree = "<group>";
+		};
+		3B28D0A0ABD3DE4F788EE855 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.plist.xml";
+			path = "VoltIQ/Info.plist";
+			sourceTree = "<group>";
+		};
+		7DC1A841A82981F8C39575BB = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "text.xcconfig";
+			path = "Config/App.xcconfig";
+			sourceTree = "<group>";
+		};
+		B9074B1E49FB5A6E382E802D = {
+			isa = "PBXFileReference";
+			explicitFileType = "wrapper.application";
+			path = "VoltIQ.app";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		2837729F05EE4B9FDCABF2CA = {
+			isa = "PBXFileReference";
+			explicitFileType = "wrapper.cfbundle";
+			path = "VoltIQTests.xctest";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		13DC383B5E32270AF16099DF = {
+			isa = "PBXGroup";
 			children = (
-				277600F1EC335E34F9085ED8 /* VoltIQ/AppStore.swift */,
-				B18743CD1CD7CD448877201D /* VoltIQ/Core/ChargeLog.swift */,
-				A4A0FA83AD2D17642212A294 /* VoltIQ/Core/ChargerDiscovery.swift */,
-				EDE0947A53BA1D5DA4A8622D /* VoltIQ/Core/ChargingCalculator.swift */,
-				68293D5A625BE566762F2AE7 /* VoltIQ/Core/ConnectorFormatting.swift */,
-				2E48EEFD13CBAA562767106A /* VoltIQ/Core/DeviceRepository.swift */,
-				24AA689CF93B7C93621E7823 /* VoltIQ/Core/GooglePlaces.swift */,
-				6C50CC45C648CEF11D939104 /* VoltIQ/Core/Models.swift */,
-				D8F53D7D02F2BCB630FFE4E9 /* VoltIQ/Services/CoreLocationService.swift */,
-				4FD8189966B58326F7BF9788 /* VoltIQ/Services/GooglePlacesChargerProvider.swift */,
-				AA92987EE86131305BD9083B /* VoltIQ/Services/MapKitChargerProvider.swift */,
-				528EC0678BF3A11F2059FDB9 /* VoltIQ/Views/CalculatorView.swift */,
-				36908386E2EEAFE97A2CE3AE /* VoltIQ/Views/ChargeFormView.swift */,
-				3D76E1AAFAC029B78A55E580 /* VoltIQ/Views/ChargersView.swift */,
-				47AB45A3C21487B6A7A8FB40 /* VoltIQ/Views/HistoryView.swift */,
-				4DD2A92909D7EB2473023763 /* VoltIQ/Views/SettingsView.swift */,
-				99C5116DBEEC2B8ADE9EC144 /* VoltIQ/Views/Theme.swift */,
-				09340EE16BE304C927BF0AA2 /* VoltIQ/Views/UserPickerView.swift */,
-				E48D32D724A5CCD0FB02D822 /* VoltIQ/VoltIQApp.swift */,
-				6F27476088B18C1727CA111A /* VoltIQ/Assets.xcassets */,
-				572DC8D5A2A8E56751BB838A /* VoltIQ/PrivacyInfo.xcprivacy */,
-				3B28D0A0ABD3DE4F788EE855 /* VoltIQ/Info.plist */,
+				"277600F1EC335E34F9085ED8",
+				"B18743CD1CD7CD448877201D",
+				"19D4353DAD3976F686065CF9",
+				"A4A0FA83AD2D17642212A294",
+				"EDE0947A53BA1D5DA4A8622D",
+				"68293D5A625BE566762F2AE7",
+				"2E48EEFD13CBAA562767106A",
+				"24AA689CF93B7C93621E7823",
+				"6C50CC45C648CEF11D939104",
+				"B1F6C84B5B865E791DF37742",
+				"1ECF29FC417DF0BCC24C29FD",
+				"D8F53D7D02F2BCB630FFE4E9",
+				"4FD8189966B58326F7BF9788",
+				"AA92987EE86131305BD9083B",
+				"7F1844018214EBCDFC4884A4",
+				"528EC0678BF3A11F2059FDB9",
+				"36908386E2EEAFE97A2CE3AE",
+				"DE608DB2A687A2FF76265920",
+				"3D76E1AAFAC029B78A55E580",
+				"47AB45A3C21487B6A7A8FB40",
+				"7127429DDDCCB5C0AD6BD5E0",
+				"4DD2A92909D7EB2473023763",
+				"99C5116DBEEC2B8ADE9EC144",
+				"09340EE16BE304C927BF0AA2",
+				"E48D32D724A5CCD0FB02D822",
+				"6F27476088B18C1727CA111A",
+				"572DC8D5A2A8E56751BB838A",
+				"3B28D0A0ABD3DE4F788EE855",
 			);
-			name = VoltIQ;
+			name = "VoltIQ";
+			sourceTree = "<group>";
+		};
+		9AE740F07CC54A0881FC8633 = {
+			isa = "PBXGroup";
+			children = (
+				"D00F8A773942D94746B0736D",
+				"82069FCC9A7A4976D35DF46C",
+				"2713143B0223166AB55FA981",
+				"F4241E2C211518858B5DA1B0",
+				"DAEA912B94C7305B91CC4EC6",
+				"73022774A278CC06331B05ED",
+				"5FA47B7688A2564307240979",
+				"E3A4826022C42642C71F632C",
+			);
+			name = "VoltIQTests";
+			sourceTree = "<group>";
+		};
+		FBDC4F23F93125BBEEAE800C = {
+			isa = "PBXGroup";
+			children = (
+				"B9074B1E49FB5A6E382E802D",
+				"2837729F05EE4B9FDCABF2CA",
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		F4D8E12FC6B365FF1DB97352 = {
+			isa = "PBXGroup";
+			children = (
+				"7DC1A841A82981F8C39575BB",
+			);
+			name = "Config";
 			sourceTree = "<group>";
 		};
 		7FEFA489E25E19BEF8A8A2A9 = {
-			isa = PBXGroup;
+			isa = "PBXGroup";
 			children = (
-				13DC383B5E32270AF16099DF /* VoltIQ */,
-				9AE740F07CC54A0881FC8633 /* VoltIQTests */,
-				F4D8E12FC6B365FF1DB97352 /* Config */,
-				FBDC4F23F93125BBEEAE800C /* Products */,
+				"13DC383B5E32270AF16099DF",
+				"9AE740F07CC54A0881FC8633",
+				"F4D8E12FC6B365FF1DB97352",
+				"FBDC4F23F93125BBEEAE800C",
 			);
 			sourceTree = "<group>";
 		};
-		9AE740F07CC54A0881FC8633 /* VoltIQTests */ = {
-			isa = PBXGroup;
-			children = (
-				D00F8A773942D94746B0736D /* VoltIQTests/CalculatorTests.swift */,
-				2713143B0223166AB55FA981 /* VoltIQTests/ChargeLogTests.swift */,
-				F4241E2C211518858B5DA1B0 /* VoltIQTests/ChargerDiscoveryTests.swift */,
-				DAEA912B94C7305B91CC4EC6 /* VoltIQTests/ConnectorDetailsTests.swift */,
-				73022774A278CC06331B05ED /* VoltIQTests/PersistenceTests.swift */,
-			);
-			name = VoltIQTests;
-			sourceTree = "<group>";
+		89E1FD6268CC0F221A2BE178 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = "16.0";
+				SDKROOT = "iphoneos";
+				SWIFT_VERSION = "5.0";
+				CLANG_ENABLE_MODULES = "YES";
+				CLANG_ENABLE_OBJC_ARC = "YES";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = "YES";
+				CLANG_WARN_UNREACHABLE_CODE = "YES";
+				GCC_WARN_UNUSED_VARIABLE = "YES";
+				GCC_WARN_UNUSED_FUNCTION = "YES";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				DEBUG_INFORMATION_FORMAT = "dwarf";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG";
+				ENABLE_TESTABILITY = "YES";
+			};
+			name = "Debug";
+			baseConfigurationReference = "7DC1A841A82981F8C39575BB";
 		};
-		F4D8E12FC6B365FF1DB97352 /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				7DC1A841A82981F8C39575BB /* Config/App.xcconfig */,
-			);
-			name = Config;
-			sourceTree = "<group>";
+		E6DE6C99132752C914FEF632 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = "16.0";
+				SDKROOT = "iphoneos";
+				SWIFT_VERSION = "5.0";
+				CLANG_ENABLE_MODULES = "YES";
+				CLANG_ENABLE_OBJC_ARC = "YES";
+				CLANG_WARN_DOCUMENTATION_COMMENTS = "YES";
+				CLANG_WARN_UNREACHABLE_CODE = "YES";
+				GCC_WARN_UNUSED_VARIABLE = "YES";
+				GCC_WARN_UNUSED_FUNCTION = "YES";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+			};
+			name = "Release";
+			baseConfigurationReference = "7DC1A841A82981F8C39575BB";
 		};
-		FBDC4F23F93125BBEEAE800C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B9074B1E49FB5A6E382E802D /* VoltIQ.app */,
-				2837729F05EE4B9FDCABF2CA /* VoltIQTests.xctest */,
+		FA52021448A4AC7DE6CD200E = {
+			isa = "XCConfigurationList";
+			buildConfigurations = (
+				"89E1FD6268CC0F221A2BE178",
+				"E6DE6C99132752C914FEF632",
 			);
-			name = Products;
-			sourceTree = "<group>";
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Release";
 		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		4589F76226F600D7F9EC797E /* VoltIQTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3FDA45C111940AB7EEC171F1 /* Build configuration list for PBXNativeTarget "VoltIQTests" */;
+		E9B2E96ABC5F6856F2BE79CF = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "VoltIQ/Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = "NO";
+				CURRENT_PROJECT_VERSION = "1";
+				MARKETING_VERSION = "1.0";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+			};
+			name = "Debug";
+		};
+		5A8C91857F674E16E2724F47 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "VoltIQ/Info.plist";
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = "NO";
+				CURRENT_PROJECT_VERSION = "1";
+				MARKETING_VERSION = "1.0";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+			};
+			name = "Release";
+		};
+		0E13D5B4AB66EAE067648B8A = {
+			isa = "XCConfigurationList";
+			buildConfigurations = (
+				"E9B2E96ABC5F6856F2BE79CF",
+				"5A8C91857F674E16E2724F47",
+			);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Release";
+		};
+		94CDAC1FF98D44FF2AFC108B = {
+			isa = "PBXBuildFile";
+			fileRef = "277600F1EC335E34F9085ED8";
+		};
+		D5F8F43EAD6A5D82D6116A93 = {
+			isa = "PBXBuildFile";
+			fileRef = "B18743CD1CD7CD448877201D";
+		};
+		17A11834470D60860C698D7F = {
+			isa = "PBXBuildFile";
+			fileRef = "19D4353DAD3976F686065CF9";
+		};
+		8488C42972D3C265A0372E0A = {
+			isa = "PBXBuildFile";
+			fileRef = "A4A0FA83AD2D17642212A294";
+		};
+		C638D1B10AC35790620E65FB = {
+			isa = "PBXBuildFile";
+			fileRef = "EDE0947A53BA1D5DA4A8622D";
+		};
+		4D6784BEF5CC6FA7581A4C7B = {
+			isa = "PBXBuildFile";
+			fileRef = "68293D5A625BE566762F2AE7";
+		};
+		8A14B231AC1E2FB2BEAD46CD = {
+			isa = "PBXBuildFile";
+			fileRef = "2E48EEFD13CBAA562767106A";
+		};
+		8B3F8651CCB12BF4E45F2DAF = {
+			isa = "PBXBuildFile";
+			fileRef = "24AA689CF93B7C93621E7823";
+		};
+		D9EF99FBF14291969B2B46C4 = {
+			isa = "PBXBuildFile";
+			fileRef = "6C50CC45C648CEF11D939104";
+		};
+		8F2032803D8985D5C68FE00F = {
+			isa = "PBXBuildFile";
+			fileRef = "B1F6C84B5B865E791DF37742";
+		};
+		1A6D3254311F1322023AB5F7 = {
+			isa = "PBXBuildFile";
+			fileRef = "1ECF29FC417DF0BCC24C29FD";
+		};
+		C519C46CD1941477E1833AB2 = {
+			isa = "PBXBuildFile";
+			fileRef = "D8F53D7D02F2BCB630FFE4E9";
+		};
+		45944EBF8C724B6E63AD8185 = {
+			isa = "PBXBuildFile";
+			fileRef = "4FD8189966B58326F7BF9788";
+		};
+		5837E2A317A0C58EBB4039FE = {
+			isa = "PBXBuildFile";
+			fileRef = "AA92987EE86131305BD9083B";
+		};
+		5D8F9B3FAABB6E20651BC90F = {
+			isa = "PBXBuildFile";
+			fileRef = "7F1844018214EBCDFC4884A4";
+		};
+		DB8F8D46382D09B9BBF5883D = {
+			isa = "PBXBuildFile";
+			fileRef = "528EC0678BF3A11F2059FDB9";
+		};
+		B32ADAC3A4BE52F6FCF16A03 = {
+			isa = "PBXBuildFile";
+			fileRef = "36908386E2EEAFE97A2CE3AE";
+		};
+		AFA466A0110E3EE1D4F0F8E4 = {
+			isa = "PBXBuildFile";
+			fileRef = "DE608DB2A687A2FF76265920";
+		};
+		C48C0174F0E32930B841BB76 = {
+			isa = "PBXBuildFile";
+			fileRef = "3D76E1AAFAC029B78A55E580";
+		};
+		DAED8677208ED83833F2A62D = {
+			isa = "PBXBuildFile";
+			fileRef = "47AB45A3C21487B6A7A8FB40";
+		};
+		EAC1C434B5A8E92CA1325E52 = {
+			isa = "PBXBuildFile";
+			fileRef = "7127429DDDCCB5C0AD6BD5E0";
+		};
+		A1338FBDE2B4BD5A96D6109A = {
+			isa = "PBXBuildFile";
+			fileRef = "4DD2A92909D7EB2473023763";
+		};
+		1C2CDABCECEF2DB28A84227E = {
+			isa = "PBXBuildFile";
+			fileRef = "99C5116DBEEC2B8ADE9EC144";
+		};
+		588086D8E9ED048396EBD17C = {
+			isa = "PBXBuildFile";
+			fileRef = "09340EE16BE304C927BF0AA2";
+		};
+		D40CFDF9B526BF56D0B9E4B0 = {
+			isa = "PBXBuildFile";
+			fileRef = "E48D32D724A5CCD0FB02D822";
+		};
+		CB1F8341FDD0D5C6400FDAF8 = {
+			isa = "PBXSourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+				"94CDAC1FF98D44FF2AFC108B",
+				"D5F8F43EAD6A5D82D6116A93",
+				"17A11834470D60860C698D7F",
+				"8488C42972D3C265A0372E0A",
+				"C638D1B10AC35790620E65FB",
+				"4D6784BEF5CC6FA7581A4C7B",
+				"8A14B231AC1E2FB2BEAD46CD",
+				"8B3F8651CCB12BF4E45F2DAF",
+				"D9EF99FBF14291969B2B46C4",
+				"8F2032803D8985D5C68FE00F",
+				"1A6D3254311F1322023AB5F7",
+				"C519C46CD1941477E1833AB2",
+				"45944EBF8C724B6E63AD8185",
+				"5837E2A317A0C58EBB4039FE",
+				"5D8F9B3FAABB6E20651BC90F",
+				"DB8F8D46382D09B9BBF5883D",
+				"B32ADAC3A4BE52F6FCF16A03",
+				"AFA466A0110E3EE1D4F0F8E4",
+				"C48C0174F0E32930B841BB76",
+				"DAED8677208ED83833F2A62D",
+				"EAC1C434B5A8E92CA1325E52",
+				"A1338FBDE2B4BD5A96D6109A",
+				"1C2CDABCECEF2DB28A84227E",
+				"588086D8E9ED048396EBD17C",
+				"D40CFDF9B526BF56D0B9E4B0",
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		2A571BD1E9ABF4F122A8E632 = {
+			isa = "PBXFrameworksBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		6C52B0FF155640A1834565EB = {
+			isa = "PBXBuildFile";
+			fileRef = "6F27476088B18C1727CA111A";
+		};
+		02579902063781AE19CD30EC = {
+			isa = "PBXBuildFile";
+			fileRef = "572DC8D5A2A8E56751BB838A";
+		};
+		39F6BB0BF9908DE3411BF295 = {
+			isa = "PBXResourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+				"6C52B0FF155640A1834565EB",
+				"02579902063781AE19CD30EC",
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		8FC2453ED5EBF1568058C839 = {
+			isa = "PBXNativeTarget";
+			buildConfigurationList = "0E13D5B4AB66EAE067648B8A";
 			buildPhases = (
-				D13161A084ABB15E36E9C5E4 /* Sources */,
-				C99E2D31C4EA76F7C528D5F9 /* Frameworks */,
+				"CB1F8341FDD0D5C6400FDAF8",
+				"2A571BD1E9ABF4F122A8E632",
+				"39F6BB0BF9908DE3411BF295",
 			);
 			buildRules = (
 			);
 			dependencies = (
-				58A5D8785D26BBB94CE615BB /* PBXTargetDependency */,
 			);
-			name = VoltIQTests;
-			productName = VoltIQTests;
-			productReference = 2837729F05EE4B9FDCABF2CA /* VoltIQTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		8FC2453ED5EBF1568058C839 /* VoltIQ */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0E13D5B4AB66EAE067648B8A /* Build configuration list for PBXNativeTarget "VoltIQ" */;
-			buildPhases = (
-				CB1F8341FDD0D5C6400FDAF8 /* Sources */,
-				2A571BD1E9ABF4F122A8E632 /* Frameworks */,
-				39F6BB0BF9908DE3411BF295 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = VoltIQ;
-			productName = VoltIQ;
-			productReference = B9074B1E49FB5A6E382E802D /* VoltIQ.app */;
+			name = "VoltIQ";
+			productName = "VoltIQ";
+			productReference = "B9074B1E49FB5A6E382E802D";
 			productType = "com.apple.product-type.application";
 		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
-			isa = PBXProject;
+		BA223EB12D25C38406B5A691 = {
+			isa = "PBXContainerItemProxy";
+			containerPortal = "98F54143AB4E86B28C3AFEE0";
+			proxyType = "1";
+			remoteGlobalIDString = "8FC2453ED5EBF1568058C839";
+			remoteInfo = "VoltIQ";
+		};
+		58A5D8785D26BBB94CE615BB = {
+			isa = "PBXTargetDependency";
+			target = "8FC2453ED5EBF1568058C839";
+			targetProxy = "BA223EB12D25C38406B5A691";
+		};
+		FCB48D8F88BCDB0ED9FADFD7 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				GENERATE_INFOPLIST_FILE = "YES";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoltIQ.app/VoltIQ";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+			};
+			name = "Debug";
+		};
+		942EEBBACD6C88CAE7F29B29 = {
+			isa = "XCBuildConfiguration";
+			buildSettings = {
+				PRODUCT_BUNDLE_IDENTIFIER = "com.voltiq.ios.tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				GENERATE_INFOPLIST_FILE = "YES";
+				CODE_SIGN_STYLE = "Automatic";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoltIQ.app/VoltIQ";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+			};
+			name = "Release";
+		};
+		3FDA45C111940AB7EEC171F1 = {
+			isa = "XCConfigurationList";
+			buildConfigurations = (
+				"FCB48D8F88BCDB0ED9FADFD7",
+				"942EEBBACD6C88CAE7F29B29",
+			);
+			defaultConfigurationIsVisible = "0";
+			defaultConfigurationName = "Release";
+		};
+		370491C374968A9B62BDA13A = {
+			isa = "PBXBuildFile";
+			fileRef = "D00F8A773942D94746B0736D";
+		};
+		73C26C1AF8D2C0F9ACDCBBB2 = {
+			isa = "PBXBuildFile";
+			fileRef = "82069FCC9A7A4976D35DF46C";
+		};
+		B33438B265105AAAA715B534 = {
+			isa = "PBXBuildFile";
+			fileRef = "2713143B0223166AB55FA981";
+		};
+		23E8155EB80A13E6F0E1C653 = {
+			isa = "PBXBuildFile";
+			fileRef = "F4241E2C211518858B5DA1B0";
+		};
+		F03E24AA83236AF1C90EC797 = {
+			isa = "PBXBuildFile";
+			fileRef = "DAEA912B94C7305B91CC4EC6";
+		};
+		651AB154BA6A6EE62D92E836 = {
+			isa = "PBXBuildFile";
+			fileRef = "73022774A278CC06331B05ED";
+		};
+		D3C70C5504E2AC6EE822C660 = {
+			isa = "PBXBuildFile";
+			fileRef = "5FA47B7688A2564307240979";
+		};
+		7D40E199E541D1FA33E37C40 = {
+			isa = "PBXBuildFile";
+			fileRef = "E3A4826022C42642C71F632C";
+		};
+		D13161A084ABB15E36E9C5E4 = {
+			isa = "PBXSourcesBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+				"370491C374968A9B62BDA13A",
+				"73C26C1AF8D2C0F9ACDCBBB2",
+				"B33438B265105AAAA715B534",
+				"23E8155EB80A13E6F0E1C653",
+				"F03E24AA83236AF1C90EC797",
+				"651AB154BA6A6EE62D92E836",
+				"D3C70C5504E2AC6EE822C660",
+				"7D40E199E541D1FA33E37C40",
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		C99E2D31C4EA76F7C528D5F9 = {
+			isa = "PBXFrameworksBuildPhase";
+			buildActionMask = "2147483647";
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = "0";
+		};
+		4589F76226F600D7F9EC797E = {
+			isa = "PBXNativeTarget";
+			buildConfigurationList = "3FDA45C111940AB7EEC171F1";
+			buildPhases = (
+				"D13161A084ABB15E36E9C5E4",
+				"C99E2D31C4EA76F7C528D5F9",
+			);
+			buildRules = (
+			);
+			dependencies = (
+				"58A5D8785D26BBB94CE615BB",
+			);
+			name = "VoltIQTests";
+			productName = "VoltIQTests";
+			productReference = "2837729F05EE4B9FDCABF2CA";
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		98F54143AB4E86B28C3AFEE0 = {
+			isa = "PBXProject";
 			attributes = {
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = "1600";
 				TargetAttributes = {
-					4589F76226F600D7F9EC797E = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 8FC2453ED5EBF1568058C839;
-					};
 					8FC2453ED5EBF1568058C839 = {
-						CreatedOnToolsVersion = 16.0;
+						CreatedOnToolsVersion = "16.0";
+					};
+					4589F76226F600D7F9EC797E = {
+						CreatedOnToolsVersion = "16.0";
+						TestTargetID = "8FC2453ED5EBF1568058C839";
 					};
 				};
 			};
-			buildConfigurationList = FA52021448A4AC7DE6CD200E /* Build configuration list for PBXProject "VoltIQ" */;
+			buildConfigurationList = "FA52021448A4AC7DE6CD200E";
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
-			hasScannedForEncodings = 0;
+			developmentRegion = "en";
+			hasScannedForEncodings = "0";
 			knownRegions = (
-				en,
-				Base,
+				"en",
+				"Base",
 			);
-			mainGroup = 7FEFA489E25E19BEF8A8A2A9;
-			productRefGroup = FBDC4F23F93125BBEEAE800C /* Products */;
+			mainGroup = "7FEFA489E25E19BEF8A8A2A9";
+			productRefGroup = "FBDC4F23F93125BBEEAE800C";
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8FC2453ED5EBF1568058C839 /* VoltIQ */,
-				4589F76226F600D7F9EC797E /* VoltIQTests */,
+				"8FC2453ED5EBF1568058C839",
+				"4589F76226F600D7F9EC797E",
 			);
 		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		39F6BB0BF9908DE3411BF295 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C52B0FF155640A1834565EB /* VoltIQ/Assets.xcassets in Resources */,
-				02579902063781AE19CD30EC /* VoltIQ/PrivacyInfo.xcprivacy in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		CB1F8341FDD0D5C6400FDAF8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				94CDAC1FF98D44FF2AFC108B /* VoltIQ/AppStore.swift in Sources */,
-				D5F8F43EAD6A5D82D6116A93 /* VoltIQ/Core/ChargeLog.swift in Sources */,
-				8488C42972D3C265A0372E0A /* VoltIQ/Core/ChargerDiscovery.swift in Sources */,
-				C638D1B10AC35790620E65FB /* VoltIQ/Core/ChargingCalculator.swift in Sources */,
-				4D6784BEF5CC6FA7581A4C7B /* VoltIQ/Core/ConnectorFormatting.swift in Sources */,
-				8A14B231AC1E2FB2BEAD46CD /* VoltIQ/Core/DeviceRepository.swift in Sources */,
-				8B3F8651CCB12BF4E45F2DAF /* VoltIQ/Core/GooglePlaces.swift in Sources */,
-				D9EF99FBF14291969B2B46C4 /* VoltIQ/Core/Models.swift in Sources */,
-				C519C46CD1941477E1833AB2 /* VoltIQ/Services/CoreLocationService.swift in Sources */,
-				45944EBF8C724B6E63AD8185 /* VoltIQ/Services/GooglePlacesChargerProvider.swift in Sources */,
-				5837E2A317A0C58EBB4039FE /* VoltIQ/Services/MapKitChargerProvider.swift in Sources */,
-				DB8F8D46382D09B9BBF5883D /* VoltIQ/Views/CalculatorView.swift in Sources */,
-				B32ADAC3A4BE52F6FCF16A03 /* VoltIQ/Views/ChargeFormView.swift in Sources */,
-				C48C0174F0E32930B841BB76 /* VoltIQ/Views/ChargersView.swift in Sources */,
-				DAED8677208ED83833F2A62D /* VoltIQ/Views/HistoryView.swift in Sources */,
-				A1338FBDE2B4BD5A96D6109A /* VoltIQ/Views/SettingsView.swift in Sources */,
-				1C2CDABCECEF2DB28A84227E /* VoltIQ/Views/Theme.swift in Sources */,
-				588086D8E9ED048396EBD17C /* VoltIQ/Views/UserPickerView.swift in Sources */,
-				D40CFDF9B526BF56D0B9E4B0 /* VoltIQ/VoltIQApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D13161A084ABB15E36E9C5E4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				370491C374968A9B62BDA13A /* VoltIQTests/CalculatorTests.swift in Sources */,
-				B33438B265105AAAA715B534 /* VoltIQTests/ChargeLogTests.swift in Sources */,
-				23E8155EB80A13E6F0E1C653 /* VoltIQTests/ChargerDiscoveryTests.swift in Sources */,
-				F03E24AA83236AF1C90EC797 /* VoltIQTests/ConnectorDetailsTests.swift in Sources */,
-				651AB154BA6A6EE62D92E836 /* VoltIQTests/PersistenceTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		58A5D8785D26BBB94CE615BB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8FC2453ED5EBF1568058C839 /* VoltIQ */;
-			targetProxy = BA223EB12D25C38406B5A691 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin XCBuildConfiguration section */
-		5A8C91857F674E16E2724F47 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = VoltIQ/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.voltiq.ios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		89E1FD6268CC0F221A2BE178 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DC1A841A82981F8C39575BB /* Config/App.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		942EEBBACD6C88CAE7F29B29 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.voltiq.ios.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoltIQ.app/VoltIQ";
-			};
-			name = Release;
-		};
-		E6DE6C99132752C914FEF632 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DC1A841A82981F8C39575BB /* Config/App.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		E9B2E96ABC5F6856F2BE79CF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RAV5838ARK;
-				INFOPLIST_FILE = VoltIQ/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.voltiq.ios;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FCB48D8F88BCDB0ED9FADFD7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.voltiq.ios.tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoltIQ.app/VoltIQ";
-			};
-			name = Debug;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		0E13D5B4AB66EAE067648B8A /* Build configuration list for PBXNativeTarget "VoltIQ" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E9B2E96ABC5F6856F2BE79CF /* Debug */,
-				5A8C91857F674E16E2724F47 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3FDA45C111940AB7EEC171F1 /* Build configuration list for PBXNativeTarget "VoltIQTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FCB48D8F88BCDB0ED9FADFD7 /* Debug */,
-				942EEBBACD6C88CAE7F29B29 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA52021448A4AC7DE6CD200E /* Build configuration list for PBXProject "VoltIQ" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				89E1FD6268CC0F221A2BE178 /* Debug */,
-				E6DE6C99132752C914FEF632 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
 	};
-	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+	rootObject = "98F54143AB4E86B28C3AFEE0";
 }

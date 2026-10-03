@@ -12,6 +12,9 @@ struct ChargeDraft {
     var rate: Double?
     var idle: Double?
     var odometer: Double?
+    var station: StationRef?
+    var connectorType: ConnectorType?
+    var plannedSessionID: UUID?
 
     func entry(capacity: Double, operator op: ChargingOperator?, manualGST: GSTTreatment) throws -> ChargeEntry {
         guard date.timeIntervalSince1970.isFinite, capacity.isFinite, capacity > 0 else { throw CalculationError.invalid("Set your battery capacity on the Calculator first.") }
@@ -45,6 +48,10 @@ struct ChargeDraft {
         entry.fees = fees > 0 ? Self.round(fees) : nil
         entry.idleMinutes = (idle ?? 0) > 0 ? idle : nil
         entry.odometer = odometer
+        entry.stationID = station?.id
+        entry.stationName = station?.name
+        entry.stationAddress = station?.address
+        entry.connectorType = connectorType
         return entry
     }
 
@@ -53,7 +60,7 @@ struct ChargeDraft {
 
 enum ChargeCSV {
     static func export(_ entries: [ChargeEntry]) -> String {
-        let headers = "date,energy_kwh,cost_inr,rate_inr_per_kwh,gst_included,charger_kw,kwh_billed,start_pct,end_pct,charger_type,operator,odometer_km,real_efficiency_pct,idle_minutes,fees_inr,effective_inr_per_kwh"
+        let headers = "date,energy_kwh,cost_inr,rate_inr_per_kwh,gst_included,charger_kw,kwh_billed,start_pct,end_pct,charger_type,operator,odometer_km,real_efficiency_pct,idle_minutes,fees_inr,effective_inr_per_kwh,station,connector_type"
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
         let rows = entries.map { e -> String in
@@ -61,7 +68,7 @@ enum ChargeCSV {
                 e.gst == .added ? "added" : (e.gst == .included ? "yes" : "no"), number(e.chargerPower),
                 number(e.billed), number(e.start), number(e.end), e.type?.rawValue ?? "", e.operatorName ?? "",
                 number(e.odometer), number(e.efficiency.map { ChargeDraft.round($0 * 100) }), number(e.idleMinutes),
-                number(e.fees), number(e.effectiveRate)]
+                number(e.fees), number(e.effectiveRate), e.stationName ?? "", e.connectorType?.rawValue ?? ""]
             return cells.map(escape).joined(separator: ",")
         }
         return ([headers] + rows).joined(separator: "\n")

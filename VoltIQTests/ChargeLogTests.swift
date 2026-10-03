@@ -45,7 +45,7 @@ final class ChargeLogTests: XCTestCase {
         XCTAssertNil(entries[1].chargerPower)
         let lines = ChargeCSV.export(entries).split(separator: "\n")
         XCTAssertEqual(lines.count, 3)
-        XCTAssertEqual(lines[1].split(separator: ",", omittingEmptySubsequences: false).count, 16)
+        XCTAssertEqual(lines[1].split(separator: ",", omittingEmptySubsequences: false).count, 18)
     }
 
     func testCSVQuotesOperatorNames() throws {
