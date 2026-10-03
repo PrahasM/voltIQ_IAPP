@@ -24,6 +24,31 @@ struct ChargerDiscoveryConfig: Equatable {
     static let `default` = ChargerDiscoveryConfig()
 }
 
+enum ConnectorType: String, Equatable, Hashable, CaseIterable {
+    case ccs1, ccs2, type2, chademo, nacs, other, unknown
+}
+
+struct ChargingConnector: Identifiable, Equatable, Hashable {
+    let type: ConnectorType
+    let maxPowerKW: Double?
+    let count: Int?
+
+    var id: String { "\(type.rawValue)|\(maxPowerKW.map { String($0) } ?? "-")" }
+}
+
+enum ConnectorDetails: Equatable, Hashable {
+    case available([ChargingConnector])
+    case unavailable
+
+    var connectors: [ChargingConnector] { if case .available(let list) = self { return list } else { return [] } }
+}
+
+struct RawConnector: Equatable {
+    var type: ConnectorType
+    var maxPowerKW: Double?
+    var count: Int?
+}
+
 struct ChargingStation: Identifiable, Equatable, Hashable {
     let id: String
     let name: String
@@ -32,6 +57,7 @@ struct ChargingStation: Identifiable, Equatable, Hashable {
     let address: String?
     let distanceMeters: Double?
     let source: String
+    var connectors: ConnectorDetails = .unavailable
 
     var coordinate: Coordinate { Coordinate(latitude: latitude, longitude: longitude) }
 
@@ -50,6 +76,8 @@ struct RawStation: Equatable {
     var longitude: Double?
     var address: String?
     var source: String
+    /// nil means the provider supplied no connector data.
+    var connectors: [RawConnector]? = nil
 }
 
 protocol ChargerProvider {
@@ -91,10 +119,33 @@ enum StationNormalizer {
             stations.append(ChargingStation(
                 id: id, name: clean(item.name) ?? "EV charging station", latitude: lat, longitude: lon,
                 address: clean(item.address), distanceMeters: user.flatMap { $0.isValid ? $0.distance(to: coordinate) : nil },
-                source: item.source))
+                source: item.source, connectors: connectors(item.connectors)))
         }
         stations.sort { ($0.distanceMeters ?? .infinity, $0.id) < ($1.distanceMeters ?? .infinity, $1.id) }
         return Array(stations.prefix(max(0, limit)))
+    }
+
+    /// Groups by (type, power) so e.g. CCS2 60 kW and CCS2 120 kW stay distinct; exact duplicates merge counts.
+    static func connectors(_ raw: [RawConnector]?) -> ConnectorDetails {
+        guard let raw, !raw.isEmpty else { return .unavailable }
+        struct Key: Hashable { let type: ConnectorType; let power: Double? }
+        var order: [Key] = []
+        var counts: [Key: Int?] = [:]
+        for item in raw {
+            let power = item.maxPowerKW.flatMap { $0.isFinite && $0 > 0 ? ($0 * 10).rounded() / 10 : nil }
+            let count = item.count.flatMap { $0 >= 1 ? $0 : nil }
+            let key = Key(type: item.type, power: power)
+            if let existing = counts[key] {
+                counts[key] = (existing == nil && count == nil) ? nil : (existing ?? 0) + (count ?? 0)
+            } else {
+                order.append(key)
+                counts[key] = .some(count)
+            }
+        }
+        let rank = Dictionary(uniqueKeysWithValues: ConnectorType.allCases.enumerated().map { ($1, $0) })
+        let groups = order.map { ChargingConnector(type: $0.type, maxPowerKW: $0.power, count: counts[$0] ?? nil) }
+            .sorted { (rank[$0.type]!, -($0.maxPowerKW ?? -1)) < (rank[$1.type]!, -($1.maxPowerKW ?? -1)) }
+        return groups.isEmpty ? .unavailable : .available(groups)
     }
 
     private static func clean(_ text: String?) -> String? {
