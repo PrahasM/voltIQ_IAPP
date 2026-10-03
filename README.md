@@ -26,6 +26,7 @@ Use `xcrun simctl list devices available` to substitute an installed simulator n
 - **Calculator:** target %, ₹ budget or time; current-charge steppers; 80/85/90/100/custom targets; ₹5–₹40 rate slider in ₹0.50 steps; AC/DC presets and custom power/type; car power limits; DC taper above 80%; copyable rounded-up charger kWh; phase timing and collapsible GST cost breakdown.
 - **Settings:** per-driver efficiencies (DC 92%, AC 87%), max AC/DC power (11/150 kW), DC taper (40%), operator CRUD with GST and session/idle fees, learned efficiencies and a system/light/dark appearance override.
 - **History:** editable receipt values in a prefilled or blank charge form, optional receipt photo from Photos, totals, deletion, CSV export, and an opt-in learning prompt after 3 eligible charges of a type.
+- **Chargers:** finds nearby EV charging stations (5 km, up to 20; defaults in `ChargerDiscoveryConfig`) on a map and list using when-in-use location and Apple MapKit. This is the only feature that needs a network connection or sends data (a search area) to Apple; everything else stays on-device.
 - **Who's charging?:** normalized local driver names with independent preferences, operators and logs. Deleting a driver removes their receipts too. Names are a convenience on a shared device, not authenticated accounts.
 
 ### Calculation parity
