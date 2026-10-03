@@ -145,6 +145,10 @@ struct ChargeEntry: Codable, Equatable, Identifiable {
     var efficiency: Double?
     var effectiveRate: Double?
     var photo: Int?
+    var stationID: String?
+    var stationName: String?
+    var stationAddress: String?
+    var connectorType: ConnectorType?
     var id: Double { timestamp }
     var date: Date { Date(timeIntervalSince1970: timestamp / 1000) }
     var spent: Double { cost + (fees ?? 0) }
@@ -153,6 +157,7 @@ struct ChargeEntry: Codable, Equatable, Identifiable {
         case timestamp = "t", energy = "e", cost = "c", rate = "r", gst = "g", chargerPower = "k"
         case billed = "b", start = "s", end = "f", type = "y", operatorName = "o", operatorID = "oi"
         case odometer = "d", idleMinutes = "m", fees = "fe", efficiency = "x", effectiveRate = "q", photo = "p"
+        case stationID = "si", stationName = "sn", stationAddress = "sa", connectorType = "ct"
     }
 
     init(timestamp: Double, energy: Double, cost: Double, rate: Double, gst: GSTTreatment, chargerPower: Double?) {
@@ -184,6 +189,10 @@ struct ChargeEntry: Codable, Equatable, Identifiable {
         efficiency = try v.decodeIfPresent(Double.self, forKey: .efficiency)
         effectiveRate = try v.decodeIfPresent(Double.self, forKey: .effectiveRate)
         photo = try v.decodeIfPresent(Int.self, forKey: .photo)
+        stationID = try v.decodeIfPresent(String.self, forKey: .stationID)
+        stationName = try v.decodeIfPresent(String.self, forKey: .stationName)
+        stationAddress = try v.decodeIfPresent(String.self, forKey: .stationAddress)
+        connectorType = try? v.decodeIfPresent(ConnectorType.self, forKey: .connectorType)
     }
 }
 
@@ -204,6 +213,7 @@ struct UserProfile: Codable, Equatable, Identifiable {
     var settings = CarSettings()
     var operators: [ChargingOperator] = []
     var entries: [ChargeEntry] = []
+    var plannedSession: PlannedSession?
 
     static func normalize(_ name: String) -> String {
         String(name.lowercased().split(whereSeparator: \.isWhitespace).joined(separator: " ").prefix(24))

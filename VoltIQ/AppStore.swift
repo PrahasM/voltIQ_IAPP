@@ -51,6 +51,32 @@ final class AppStore: ObservableObject {
         commit(next)
     }
 
+    /// Saves a planned session for the selected driver, optionally already started. Replaces a `planned` one.
+    func planCharge(_ plan: ChargePlan, startPercent: Double? = nil, now: Date = Date()) throws {
+        guard let index = state.users.firstIndex(where: { $0.id == state.selectedUserID }) else { return }
+        if state.users[index].plannedSession?.status == .inProgress {
+            throw CalculationError.invalid("A charge is already in progress. Complete or cancel it from History first.")
+        }
+        var session = PlannedSession(plan: plan, now: now)
+        if let startPercent { try session.start(percent: startPercent, now: now) }
+        var next = state
+        next.users[index].plannedSession = session
+        try persist(next)
+    }
+
+    func startSession(percent: Double, now: Date = Date()) throws {
+        guard let index = state.users.firstIndex(where: { $0.id == state.selectedUserID }),
+              var session = state.users[index].plannedSession else { return }
+        try session.start(percent: percent, now: now)
+        var next = state
+        next.users[index].plannedSession = session
+        try persist(next)
+    }
+
+    func cancelPlan() {
+        updateProfile { $0.plannedSession = nil }
+    }
+
     func chooseUser(_ id: UUID) {
         var next = state
         next.selectedUserID = id
@@ -125,6 +151,7 @@ final class AppStore: ObservableObject {
             entry.photo = 1
         }
         var next = state
+        if let planned = draft.plannedSessionID, next.users[index].plannedSession?.id == planned { next.users[index].plannedSession = nil }
         next.users[index].entries.append(entry)
         next.users[index].entries.sort { $0.timestamp < $1.timestamp }
         let removed = Array(next.users[index].entries.dropLast(500))

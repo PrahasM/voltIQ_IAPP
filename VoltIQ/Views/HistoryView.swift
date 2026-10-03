@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 struct HistoryView: View {
     @EnvironmentObject private var store: AppStore
     @State private var showLog = false
+    @State private var completing: PlannedSession?
     @State private var showExport = false
     @State private var confirmClear = false
     @State private var deleting: ChargeEntry?
@@ -27,6 +28,7 @@ struct HistoryView: View {
                 Text("Average uses battery energy added, matching the web history. Each entry also shows its rate per billed kWh.")
                     .font(.caption).foregroundStyle(.secondary)
             }
+            if let session = store.profile?.plannedSession { plannedCard(session) }
             Button { showLog = true } label: { Label("Add a charge", systemImage: "plus.circle.fill") }.buttonStyle(PrimaryButton())
             if entries.isEmpty {
                 Card {
@@ -38,8 +40,9 @@ struct HistoryView: View {
                 Card {
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(entry.operatorName ?? "Charge session").font(.headline)
+                            Text(entry.stationName ?? entry.operatorName ?? "Charge session").font(.headline)
                             Text(entry.date.formatted(date: .abbreviated, time: .shortened)).font(.caption).foregroundStyle(.secondary)
+                            if let address = entry.stationAddress { Text(address).font(.caption).foregroundStyle(.secondary) }
                         }
                         Spacer()
                         Text(Display.money(entry.spent)).font(.headline).monospacedDigit()
@@ -72,6 +75,7 @@ struct HistoryView: View {
             }
         }
         .sheet(isPresented: $showLog, onDismiss: { NotificationCenter.default.post(name: .chargeFormDismissed, object: nil) }) { ChargeFormView(draft: ChargeDraft()) }
+        .sheet(item: $completing, onDismiss: { NotificationCenter.default.post(name: .chargeFormDismissed, object: nil) }) { ChargeFormView(draft: $0.draft()) }
         .sheet(item: $receipt) { selection in ReceiptView(url: selection.url) }
         .fileExporter(isPresented: $showExport, document: CSVDocument(text: ChargeCSV.export(entries)), contentType: .commaSeparatedText,
                       defaultFilename: "voltiq-\(store.profile?.name ?? "history")") { result in
@@ -88,6 +92,30 @@ struct HistoryView: View {
             Button("Clear history", role: .destructive) { store.clearHistory() }
             Button("Cancel", role: .cancel) {}
         } message: { Text("All charges and receipt photos for \(store.profile?.name ?? "this driver") will be deleted.") }
+    }
+
+    private func plannedCard(_ session: PlannedSession) -> some View {
+        Card {
+            Label(session.status == .inProgress ? "Charging now" : "Planned charge", systemImage: session.status == .inProgress ? "bolt.fill" : "bookmark.fill").font(.headline)
+            Text(session.station.name).font(.title3.bold())
+            if let address = session.station.address { Text(address).font(.caption).foregroundStyle(.secondary) }
+            if let type = session.connectorType {
+                let display = ConnectorDisplay(ChargingConnector(type: type, maxPowerKW: session.powerKW, count: nil))
+                DetailRow(title: "Connector", value: display.powerText.hasSuffix("kW") ? "\(display.typeText) · \(display.powerText)" : display.typeText)
+            }
+            if let start = session.startedAt, let percent = session.startPercent {
+                DetailRow(title: "Started", value: "\(start.formatted(date: .omitted, time: .shortened)) at \(Display.number(percent, digits: 0))%")
+            }
+            if let estimate = session.estimate {
+                DetailRow(title: "Estimate to \(Display.number(estimate.targetPercent, digits: 0))%", value: "\(Display.duration(estimate.hours)) · \(Display.money(estimate.cost))")
+            } else { Text("No estimate for this station.").font(.caption).foregroundStyle(.secondary) }
+            if session.status == .planned {
+                StartPlannedButton(session: session)
+            } else {
+                Button { completing = session } label: { Label("Complete & log charge", systemImage: "checkmark.circle.fill") }.buttonStyle(PrimaryButton())
+            }
+            Button(role: .destructive) { store.cancelPlan() } label: { Label(session.status == .planned ? "Cancel plan" : "Cancel session", systemImage: "xmark.circle").frame(maxWidth: .infinity, minHeight: 48) }
+        }
     }
 
     private func metric(_ label: String, _ value: String, _ symbol: String) -> some View {
@@ -121,4 +149,29 @@ struct CSVDocument: FileDocument {
     init(text: String) { self.text = text }
     init(configuration: ReadConfiguration) throws { text = String(decoding: configuration.file.regularFileContents ?? Data(), as: UTF8.self) }
     func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper { FileWrapper(regularFileWithContents: Data(text.utf8)) }
+}
+
+private struct StartPlannedButton: View {
+    @EnvironmentObject private var store: AppStore
+    let session: PlannedSession
+    @State private var showStart = false
+    @State private var percent = 20.0
+    @State private var error: String?
+    var body: some View {
+        Button { percent = store.profile?.preferences.current ?? 20; showStart = true } label: { Label("Start session", systemImage: "bolt.fill") }.buttonStyle(PrimaryButton())
+            .sheet(isPresented: $showStart) {
+                NavigationStack {
+                    Page {
+                        Card {
+                            NumberField(title: "Starting charge", value: $percent, suffix: "%")
+                            if let error { Label(error, systemImage: "exclamationmark.circle").font(.caption).foregroundStyle(.red) }
+                        }
+                        Button("Start session") {
+                            do { try store.startSession(percent: percent); showStart = false } catch { self.error = error.localizedDescription }
+                        }.buttonStyle(PrimaryButton())
+                    }.navigationTitle("Start session").navigationBarTitleDisplayMode(.inline)
+                        .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { showStart = false } } }
+                }.presentationDetents([.medium])
+            }
+    }
 }

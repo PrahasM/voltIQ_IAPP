@@ -60,6 +60,12 @@
 			path = "VoltIQ/Core/Models.swift";
 			sourceTree = "<group>";
 		};
+		B1F6C84B5B865E791DF37742 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQ/Core/PlannedSession.swift";
+			sourceTree = "<group>";
+		};
 		1ECF29FC417DF0BCC24C29FD = {
 			isa = "PBXFileReference";
 			lastKnownFileType = "sourcecode.swift";
@@ -186,6 +192,12 @@
 			path = "VoltIQTests/PersistenceTests.swift";
 			sourceTree = "<group>";
 		};
+		5FA47B7688A2564307240979 = {
+			isa = "PBXFileReference";
+			lastKnownFileType = "sourcecode.swift";
+			path = "VoltIQTests/PlannedSessionTests.swift";
+			sourceTree = "<group>";
+		};
 		E3A4826022C42642C71F632C = {
 			isa = "PBXFileReference";
 			lastKnownFileType = "sourcecode.swift";
@@ -240,6 +252,7 @@
 				"2E48EEFD13CBAA562767106A",
 				"24AA689CF93B7C93621E7823",
 				"6C50CC45C648CEF11D939104",
+				"B1F6C84B5B865E791DF37742",
 				"1ECF29FC417DF0BCC24C29FD",
 				"D8F53D7D02F2BCB630FFE4E9",
 				"4FD8189966B58326F7BF9788",
@@ -271,6 +284,7 @@
 				"F4241E2C211518858B5DA1B0",
 				"DAEA912B94C7305B91CC4EC6",
 				"73022774A278CC06331B05ED",
+				"5FA47B7688A2564307240979",
 				"E3A4826022C42642C71F632C",
 			);
 			name = "VoltIQTests";
@@ -435,6 +449,10 @@
 			isa = "PBXBuildFile";
 			fileRef = "6C50CC45C648CEF11D939104";
 		};
+		8F2032803D8985D5C68FE00F = {
+			isa = "PBXBuildFile";
+			fileRef = "B1F6C84B5B865E791DF37742";
+		};
 		1A6D3254311F1322023AB5F7 = {
 			isa = "PBXBuildFile";
 			fileRef = "1ECF29FC417DF0BCC24C29FD";
@@ -508,6 +526,7 @@
 				"8A14B231AC1E2FB2BEAD46CD",
 				"8B3F8651CCB12BF4E45F2DAF",
 				"D9EF99FBF14291969B2B46C4",
+				"8F2032803D8985D5C68FE00F",
 				"1A6D3254311F1322023AB5F7",
 				"C519C46CD1941477E1833AB2",
 				"45944EBF8C724B6E63AD8185",
@@ -648,6 +667,10 @@
 			isa = "PBXBuildFile";
 			fileRef = "73022774A278CC06331B05ED";
 		};
+		D3C70C5504E2AC6EE822C660 = {
+			isa = "PBXBuildFile";
+			fileRef = "5FA47B7688A2564307240979";
+		};
 		7D40E199E541D1FA33E37C40 = {
 			isa = "PBXBuildFile";
 			fileRef = "E3A4826022C42642C71F632C";
@@ -662,6 +685,7 @@
 				"23E8155EB80A13E6F0E1C653",
 				"F03E24AA83236AF1C90EC797",
 				"651AB154BA6A6EE62D92E836",
+				"D3C70C5504E2AC6EE822C660",
 				"7D40E199E541D1FA33E37C40",
 			);
 			runOnlyForDeploymentPostprocessing = "0";

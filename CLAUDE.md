@@ -44,6 +44,8 @@ Use `xcrun simctl list devices available` to pick a simulator name. CI (`.github
 
 - Charger discovery: `ChargerProvider` implementations (`MapKitChargerProvider`, `GooglePlacesChargerProvider`) return `RawStation`s; `StationNormalizer` validates/dedupes them and groups connectors by (type, power). Connector data comes only from Google Places; `ChargerProviderFactory` falls back to MapKit when `Config/Secrets.xcconfig` has no `GOOGLE_PLACES_API_KEY`. Availability, provider and price are shown only when a provider supplies them (otherwise labelled unavailable, never guessed). `ChargePlanner` (pure) preselects the connector and builds the "Charge Here" estimate from the driver's prefs; voltIQ never starts sessions or payments, only shows an in-app MapKit route (`RouteViewModel`/`RouteMapView`, an `MKMapView` wrapper because SwiftUI `Map` can't draw routes on iOS 16) or hands off to a provider app when a URL is known.
 
+- Planned sessions: `UserProfile.plannedSession` (one per driver, `PlannedSession` in Core) goes planned → inProgress and is cleared in the same persisted commit as the log entry whose draft carries its `plannedSessionID` (`AppStore.saveCharge`). `ChargeEntry` station keys are `si,sn,sa,ct`; CSV appends `station,connector_type` after the web's 16 columns.
+
 ## User Story Development Workflow
 
 When implementing product features, work on ONE user story at a time.

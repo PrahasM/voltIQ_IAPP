@@ -16,10 +16,11 @@ struct PlannedConnector: Identifiable, Equatable {
     var id: String { connector.id }
 }
 
-enum PriceSource: Equatable { case station, savedRate }
+enum PriceSource: String, Codable, Equatable { case station, savedRate }
 
 struct ChargeEstimate: Equatable {
     let hours: Double
+    let energyToBuy: Double
     let cost: Double
     let rate: Double
     let rateSource: PriceSource
@@ -97,7 +98,7 @@ enum ChargePlanner {
         if let price = station.pricePerKWh, price.isFinite, price > 0 { copy.rate = price; source = .station } else { source = .savedRate }
         do {
             let result = try ChargingCalculator.calculate(copy, settings: settings, efficiency: efficiency(type))
-            return (ChargeEstimate(hours: result.hours, cost: result.total, rate: copy.rate, rateSource: source, targetPercent: result.finalPercent), nil)
+            return (ChargeEstimate(hours: result.hours, energyToBuy: result.energyToBuy, cost: result.total, rate: copy.rate, rateSource: source, targetPercent: result.finalPercent), nil)
         } catch {
             return (nil, "Estimate unavailable: \(error.localizedDescription)")
         }

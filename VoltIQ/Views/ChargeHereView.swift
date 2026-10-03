@@ -7,7 +7,15 @@ struct ChargeHereView: View {
     let station: ChargingStation
     let origin: Coordinate?
     @State private var showRoute = false
+    @State private var message: String?
     @State private var chosenID: String?
+
+    private var inProgress: Bool { store.profile?.plannedSession?.status == .inProgress }
+
+    private func savePlan(_ plan: ChargePlan) {
+        do { try store.planCharge(plan); dismiss() }
+        catch { message = error.localizedDescription }
+    }
 
     private var plan: ChargePlan {
         let profile = store.profile
@@ -50,12 +58,15 @@ struct ChargeHereView: View {
                 }
                 Text("voltIQ doesn't start charging sessions or take payments yet. The route is shown here in the app.")
                     .font(.caption).foregroundStyle(.secondary)
+                if inProgress { Label("A charge is already in progress. Complete or cancel it from History first.", systemImage: "info.circle").font(.caption).foregroundStyle(.secondary) }
+                if let message { Label(message, systemImage: "exclamationmark.circle").font(.caption).foregroundStyle(.red) }
                 Button { showRoute = true } label: { Label("Show route", systemImage: "location.fill") }.buttonStyle(PrimaryButton())
+                Button { savePlan(plan) } label: { Label("Save plan", systemImage: "bookmark.fill") }.buttonStyle(PrimaryButton()).disabled(inProgress)
                 if case .providerApp(let url) = plan.handoff {
                     Button { openURL(url) } label: { Label("Open provider app", systemImage: "arrow.up.forward.app") }.buttonStyle(PrimaryButton())
                 }
             }
-            .navigationDestination(isPresented: $showRoute) { RouteView(station: station, origin: origin) }
+            .navigationDestination(isPresented: $showRoute) { RouteView(plan: plan, origin: origin, onDone: { dismiss() }) }
             .navigationTitle("Charge here").navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } } }
         }
