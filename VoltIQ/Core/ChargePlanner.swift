@@ -5,7 +5,8 @@ enum Availability: Equatable { case available(Int), none, unknown }
 
 enum ChargeHandoff: Equatable {
     case providerApp(URL)
-    case directions(Coordinate)
+    /// Route shown inside the app from the driver's location to the station.
+    case inAppRoute(to: Coordinate)
 }
 
 struct PlannedConnector: Identifiable, Equatable {
@@ -46,7 +47,7 @@ enum ChargePlanner {
         let selectedID = chosenID.flatMap { id in planned.contains { $0.id == id } ? id : nil } ?? preselect(planned)
         let selected = planned.first { $0.id == selectedID }
         let (estimate, note) = estimate(station: station, connector: selected?.connector, prefs: prefs, settings: settings, efficiency: efficiency, hasChoices: !planned.isEmpty)
-        let handoff: ChargeHandoff = station.providerURL.map(ChargeHandoff.providerApp) ?? .directions(station.coordinate)
+        let handoff: ChargeHandoff = station.providerURL.map(ChargeHandoff.providerApp) ?? .inAppRoute(to: station.coordinate)
         return ChargePlan(station: station, connectors: planned, selectedID: selectedID, estimate: estimate, estimateNote: note, handoff: handoff)
     }
 

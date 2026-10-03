@@ -154,10 +154,10 @@ final class ChargeHereTests: XCTestCase {
     }
 
     // Handoff (no session is ever started)
-    func testHandoffIsProviderAppWhenKnownElseDirections() {
+    func testHandoffIsProviderAppWhenKnownElseInAppRoute() {
         let url = URL(string: "https://example.com/app")!
         XCTAssertEqual(plan(station([conn(.ccs2, 60)], url: url)).handoff, .providerApp(url))
-        XCTAssertEqual(plan(station([conn(.ccs2, 60)])).handoff, .directions(Coordinate(latitude: 17.4, longitude: 78.3)))
+        XCTAssertEqual(plan(station([conn(.ccs2, 60)])).handoff, .inAppRoute(to: Coordinate(latitude: 17.4, longitude: 78.3)))
     }
 
     // Persistence compatibility

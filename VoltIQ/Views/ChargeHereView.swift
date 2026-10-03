@@ -1,4 +1,3 @@
-import MapKit
 import SwiftUI
 
 struct ChargeHereView: View {
@@ -6,6 +5,8 @@ struct ChargeHereView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
     let station: ChargingStation
+    let origin: Coordinate?
+    @State private var showRoute = false
     @State private var chosenID: String?
 
     private var plan: ChargePlan {
@@ -47,10 +48,14 @@ struct ChargeHereView: View {
                         Text(note).font(.caption).foregroundStyle(.secondary)
                     }
                 }
-                Text("voltIQ doesn't start charging sessions or take payments yet. Confirming opens the next step outside the app.")
+                Text("voltIQ doesn't start charging sessions or take payments yet. The route is shown here in the app.")
                     .font(.caption).foregroundStyle(.secondary)
-                Button { confirm(plan.handoff) } label: { Label(buttonTitle(plan.handoff), systemImage: icon(plan.handoff)) }.buttonStyle(PrimaryButton())
+                Button { showRoute = true } label: { Label("Show route", systemImage: "location.fill") }.buttonStyle(PrimaryButton())
+                if case .providerApp(let url) = plan.handoff {
+                    Button { openURL(url) } label: { Label("Open provider app", systemImage: "arrow.up.forward.app") }.buttonStyle(PrimaryButton())
+                }
             }
+            .navigationDestination(isPresented: $showRoute) { RouteView(station: station, origin: origin) }
             .navigationTitle("Charge here").navigationBarTitleDisplayMode(.inline)
             .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } } }
         }
@@ -71,25 +76,5 @@ struct ChargeHereView: View {
                 Image(systemName: selected ? "checkmark.circle.fill" : "circle")
             }.frame(minHeight: 48)
         }.buttonStyle(.plain).accessibilityAddTraits(selected ? [.isSelected] : [])
-    }
-
-    private func buttonTitle(_ handoff: ChargeHandoff) -> String {
-        if case .providerApp = handoff { return "Confirm & open provider app" }
-        return "Confirm & get directions"
-    }
-
-    private func icon(_ handoff: ChargeHandoff) -> String {
-        if case .providerApp = handoff { return "arrow.up.forward.app" }
-        return "location.fill"
-    }
-
-    private func confirm(_ handoff: ChargeHandoff) {
-        switch handoff {
-        case .providerApp(let url): openURL(url)
-        case .directions(let c):
-            let item = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: c.latitude, longitude: c.longitude)))
-            item.name = station.name
-            item.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving])
-        }
     }
 }

@@ -31,7 +31,7 @@ struct ChargersView: View {
             content
         }
         .background(VoltTheme.background(scheme).ignoresSafeArea())
-        .sheet(item: $chargeStation) { ChargeHereView(station: $0) }
+        .sheet(item: $chargeStation) { ChargeHereView(station: $0, origin: model.userLocation) }
         .task { await model.load() }
         .onChange(of: scenePhase) { phase in if phase == .active, model.state == .permissionDenied { retry() } }
         .onChange(of: model.userLocation) { if let here = $0 { center(here, span: 0.06) } }
