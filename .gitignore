@@ -8,3 +8,4 @@ xcuserdata/
 *.ipa
 *.xcarchive
 __pycache__/
+Config/Secrets.xcconfig

@@ -1,0 +1,2 @@
+// Optional: provides GOOGLE_PLACES_API_KEY. Copy Secrets.example.xcconfig to Secrets.xcconfig (gitignored).
+#include? "Secrets.xcconfig"

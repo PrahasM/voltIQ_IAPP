@@ -26,7 +26,7 @@ Use `xcrun simctl list devices available` to substitute an installed simulator n
 - **Calculator:** target %, ₹ budget or time; current-charge steppers; 80/85/90/100/custom targets; ₹5–₹40 rate slider in ₹0.50 steps; AC/DC presets and custom power/type; car power limits; DC taper above 80%; copyable rounded-up charger kWh; phase timing and collapsible GST cost breakdown.
 - **Settings:** per-driver efficiencies (DC 92%, AC 87%), max AC/DC power (11/150 kW), DC taper (40%), operator CRUD with GST and session/idle fees, learned efficiencies and a system/light/dark appearance override.
 - **History:** editable receipt values in a prefilled or blank charge form, optional receipt photo from Photos, totals, deletion, CSV export, and an opt-in learning prompt after 3 eligible charges of a type.
-- **Chargers:** finds nearby EV charging stations (5 km, up to 20; defaults in `ChargerDiscoveryConfig`) on a map and list using when-in-use location and Apple MapKit. This is the only feature that needs a network connection or sends data (a search area) to Apple; everything else stays on-device.
+- **Chargers:** finds nearby EV charging stations (5 km, up to 20; defaults in `ChargerDiscoveryConfig`) on a map and list using when-in-use location. With a Google Places API key, selecting a station shows its connector groups (type, max kW, total connector count; no live availability or pricing). Without a key it falls back to Apple MapKit and shows "Connector details unavailable". This is the only feature that uses the network: the search location is sent to Google (or Apple); everything else stays on-device.
 - **Who's charging?:** normalized local driver names with independent preferences, operators and logs. Deleting a driver removes their receipts too. Names are a convenience on a shared device, not authenticated accounts.
 
 ### Calculation parity
@@ -52,6 +52,10 @@ Session and idle fees are shown separately from the energy estimate. Logged `cos
 Charge entries retain the compact web keys: `t,e,c,r,g,k,b,s,f,y,o,oi,d,m,fe,x,q,p`. `t` is Unix milliseconds; `g` is 1 inclusive / 2 added / 0 none; `p=1` means a local receipt exists. Optional fields are omitted when absent. Legacy entries containing only `t,e,c,r,g,k` decode and export; an empty-string `k` decodes as missing power. Operators use `id,n,r,g,s,f` and a numeric `g` flag.
 
 Receipts are compressed to a maximum 1280px edge and stored as JPEG files in Application Support, scoped by driver UUID and timestamp, with iOS complete file protection. Photo bytes never go into UserDefaults. A failed receipt write prevents saving the charge so it can be retried. Photos already on-device work offline; an iCloud-only photo must be downloaded through Photos first. CSV export uses the standard Files exporter and the same 16 columns as the web. There is no built-in sync or network request; destinations chosen in Files are controlled by iOS.
+
+### Google Places key
+
+Copy `Config/Secrets.example.xcconfig` to `Config/Secrets.xcconfig` (gitignored) and set `GOOGLE_PLACES_API_KEY`. Restrict the key to this app's bundle ID in Google Cloud and set a quota/budget alert, since Nearby Search with EV charging fields is a higher billing tier. The key is passed in the `X-Goog-Api-Key` header and is exposed to the app through `Info.plist`, so treat it as restrictable, not secret.
 
 ### Design & maintenance
 

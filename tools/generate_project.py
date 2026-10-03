@@ -37,7 +37,7 @@ def phase(name, isa, files):
     return add(name, isa, buildActionMask="2147483647", files=builds, runOnlyForDeploymentPostprocessing="0")
 
 
-def configs(name, settings):
+def configs(name, settings, base=None):
     ids = []
     for config in ["Debug", "Release"]:
         values = dict(settings)
@@ -47,7 +47,8 @@ def configs(name, settings):
             if config == "Debug":
                 values["SWIFT_ACTIVE_COMPILATION_CONDITIONS"] = "DEBUG"
                 values["ENABLE_TESTABILITY"] = "YES"
-        ids.append(add(name + config, "XCBuildConfiguration", buildSettings=values, name=config))
+        extra = {"baseConfigurationReference": base} if base else {}
+        ids.append(add(name + config, "XCBuildConfiguration", buildSettings=values, name=config, **extra))
     return add(name + " configs", "XCConfigurationList", buildConfigurations=ids,
                defaultConfigurationIsVisible="0", defaultConfigurationName="Release")
 
@@ -60,15 +61,17 @@ def main():
     resources = [("VoltIQ/Assets.xcassets", file_ref("VoltIQ/Assets.xcassets", "folder.assetcatalog")),
                  ("VoltIQ/PrivacyInfo.xcprivacy", file_ref("VoltIQ/PrivacyInfo.xcprivacy", "text.xml"))]
     info = file_ref("VoltIQ/Info.plist", "text.plist.xml")
+    xcconfig = file_ref("Config/App.xcconfig", "text.xcconfig")
     app_product = add("app product", "PBXFileReference", explicitFileType="wrapper.application", path="VoltIQ.app", sourceTree="BUILT_PRODUCTS_DIR")
     test_product = add("test product", "PBXFileReference", explicitFileType="wrapper.cfbundle", path="VoltIQTests.xctest", sourceTree="BUILT_PRODUCTS_DIR")
     app_group = add("app group", "PBXGroup", children=[ref for _, ref in sources + resources] + [info], name="VoltIQ", sourceTree="<group>")
     test_group = add("test group", "PBXGroup", children=[ref for _, ref in tests], name="VoltIQTests", sourceTree="<group>")
     products = add("products", "PBXGroup", children=[app_product, test_product], name="Products", sourceTree="<group>")
-    main_group = add("main group", "PBXGroup", children=[app_group, test_group, products], sourceTree="<group>")
+    config_group = add("config group", "PBXGroup", children=[xcconfig], name="Config", sourceTree="<group>")
+    main_group = add("main group", "PBXGroup", children=[app_group, test_group, config_group, products], sourceTree="<group>")
     project_config = configs("project", {"IPHONEOS_DEPLOYMENT_TARGET": "16.0", "SDKROOT": "iphoneos", "SWIFT_VERSION": "5.0",
         "CLANG_ENABLE_MODULES": "YES", "CLANG_ENABLE_OBJC_ARC": "YES", "CLANG_WARN_DOCUMENTATION_COMMENTS": "YES",
-        "CLANG_WARN_UNREACHABLE_CODE": "YES", "GCC_WARN_UNUSED_VARIABLE": "YES", "GCC_WARN_UNUSED_FUNCTION": "YES"})
+        "CLANG_WARN_UNREACHABLE_CODE": "YES", "GCC_WARN_UNUSED_VARIABLE": "YES", "GCC_WARN_UNUSED_FUNCTION": "YES"}, base=xcconfig)
     app_config = configs("app", {"PRODUCT_BUNDLE_IDENTIFIER": "com.voltiq.ios", "PRODUCT_NAME": "$(TARGET_NAME)",
         "INFOPLIST_FILE": "VoltIQ/Info.plist", "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon", "CODE_SIGN_STYLE": "Automatic",
         "TARGETED_DEVICE_FAMILY": "1,2", "SUPPORTED_PLATFORMS": "iphoneos iphonesimulator", "SUPPORTS_MACCATALYST": "NO",

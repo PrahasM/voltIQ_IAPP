@@ -11,7 +11,7 @@ struct ChargersView: View {
                                                    span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
 
     init(model: ChargerDiscoveryViewModel? = nil) {
-        _model = StateObject(wrappedValue: model ?? ChargerDiscoveryViewModel(location: CoreLocationService(), provider: MapKitChargerProvider()))
+        _model = StateObject(wrappedValue: model ?? ChargerDiscoveryViewModel(location: CoreLocationService(), provider: ChargerProviderFactory.make()))
     }
 
     var body: some View {
@@ -26,6 +26,7 @@ struct ChargersView: View {
                     }.accessibilityLabel(station.name)
                 }
             }.frame(height: 280)
+            if let station = model.selectedStation { ConnectorsCard(station: station).padding(.horizontal, 20).padding(.top, 12) }
             content
         }
         .background(VoltTheme.background(scheme).ignoresSafeArea())
@@ -96,5 +97,32 @@ struct ChargersView: View {
     private func openSettings() { if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) } }
     private func center(_ c: Coordinate, span: Double) {
         withAnimation { region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: c.latitude, longitude: c.longitude), span: MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)) }
+    }
+}
+
+private struct ConnectorsCard: View {
+    let station: ChargingStation
+    var body: some View {
+        Card {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(station.name).font(.headline)
+                if let distance = station.distanceText { Text(distance).font(.subheadline) }
+                if let address = station.address { Text(address).font(.caption).foregroundStyle(.secondary) }
+            }
+            Text("CONNECTORS").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+            switch station.connectors {
+            case .unavailable:
+                Text("Connector details unavailable").foregroundStyle(.secondary)
+            case .available(let list):
+                ForEach(list) { connector in
+                    let display = ConnectorDisplay(connector)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(display.typeText).font(.subheadline.weight(.semibold))
+                        Text(display.powerText.hasSuffix("kW") ? "⚡ \(display.powerText)" : display.powerText).monospacedDigit()
+                        if let count = display.countText { Text(count).font(.caption).foregroundStyle(.secondary) }
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+        }.id("connectors-\(station.id)")
     }
 }

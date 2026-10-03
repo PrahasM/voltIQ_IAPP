@@ -11,12 +11,15 @@
 		1C2CDABCECEF2DB28A84227E /* VoltIQ/Views/Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C5116DBEEC2B8ADE9EC144 /* VoltIQ/Views/Theme.swift */; };
 		23E8155EB80A13E6F0E1C653 /* VoltIQTests/ChargerDiscoveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4241E2C211518858B5DA1B0 /* VoltIQTests/ChargerDiscoveryTests.swift */; };
 		370491C374968A9B62BDA13A /* VoltIQTests/CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00F8A773942D94746B0736D /* VoltIQTests/CalculatorTests.swift */; };
+		45944EBF8C724B6E63AD8185 /* VoltIQ/Services/GooglePlacesChargerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD8189966B58326F7BF9788 /* VoltIQ/Services/GooglePlacesChargerProvider.swift */; };
+		4D6784BEF5CC6FA7581A4C7B /* VoltIQ/Core/ConnectorFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68293D5A625BE566762F2AE7 /* VoltIQ/Core/ConnectorFormatting.swift */; };
 		5837E2A317A0C58EBB4039FE /* VoltIQ/Services/MapKitChargerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA92987EE86131305BD9083B /* VoltIQ/Services/MapKitChargerProvider.swift */; };
 		588086D8E9ED048396EBD17C /* VoltIQ/Views/UserPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09340EE16BE304C927BF0AA2 /* VoltIQ/Views/UserPickerView.swift */; };
 		651AB154BA6A6EE62D92E836 /* VoltIQTests/PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73022774A278CC06331B05ED /* VoltIQTests/PersistenceTests.swift */; };
 		6C52B0FF155640A1834565EB /* VoltIQ/Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F27476088B18C1727CA111A /* VoltIQ/Assets.xcassets */; };
 		8488C42972D3C265A0372E0A /* VoltIQ/Core/ChargerDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A0FA83AD2D17642212A294 /* VoltIQ/Core/ChargerDiscovery.swift */; };
 		8A14B231AC1E2FB2BEAD46CD /* VoltIQ/Core/DeviceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E48EEFD13CBAA562767106A /* VoltIQ/Core/DeviceRepository.swift */; };
+		8B3F8651CCB12BF4E45F2DAF /* VoltIQ/Core/GooglePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA689CF93B7C93621E7823 /* VoltIQ/Core/GooglePlaces.swift */; };
 		94CDAC1FF98D44FF2AFC108B /* VoltIQ/AppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277600F1EC335E34F9085ED8 /* VoltIQ/AppStore.swift */; };
 		A1338FBDE2B4BD5A96D6109A /* VoltIQ/Views/SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2A92909D7EB2473023763 /* VoltIQ/Views/SettingsView.swift */; };
 		B32ADAC3A4BE52F6FCF16A03 /* VoltIQ/Views/ChargeFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36908386E2EEAFE97A2CE3AE /* VoltIQ/Views/ChargeFormView.swift */; };
@@ -29,6 +32,7 @@
 		D9EF99FBF14291969B2B46C4 /* VoltIQ/Core/Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C50CC45C648CEF11D939104 /* VoltIQ/Core/Models.swift */; };
 		DAED8677208ED83833F2A62D /* VoltIQ/Views/HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB45A3C21487B6A7A8FB40 /* VoltIQ/Views/HistoryView.swift */; };
 		DB8F8D46382D09B9BBF5883D /* VoltIQ/Views/CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528EC0678BF3A11F2059FDB9 /* VoltIQ/Views/CalculatorView.swift */; };
+		F03E24AA83236AF1C90EC797 /* VoltIQTests/ConnectorDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEA912B94C7305B91CC4EC6 /* VoltIQTests/ConnectorDetailsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		09340EE16BE304C927BF0AA2 /* VoltIQ/Views/UserPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/UserPickerView.swift; sourceTree = "<group>"; };
+		24AA689CF93B7C93621E7823 /* VoltIQ/Core/GooglePlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/GooglePlaces.swift; sourceTree = "<group>"; };
 		2713143B0223166AB55FA981 /* VoltIQTests/ChargeLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/ChargeLogTests.swift; sourceTree = "<group>"; };
 		277600F1EC335E34F9085ED8 /* VoltIQ/AppStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/AppStore.swift; sourceTree = "<group>"; };
 		2837729F05EE4B9FDCABF2CA /* VoltIQTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = VoltIQTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,11 +57,14 @@
 		3D76E1AAFAC029B78A55E580 /* VoltIQ/Views/ChargersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/ChargersView.swift; sourceTree = "<group>"; };
 		47AB45A3C21487B6A7A8FB40 /* VoltIQ/Views/HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/HistoryView.swift; sourceTree = "<group>"; };
 		4DD2A92909D7EB2473023763 /* VoltIQ/Views/SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/SettingsView.swift; sourceTree = "<group>"; };
+		4FD8189966B58326F7BF9788 /* VoltIQ/Services/GooglePlacesChargerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Services/GooglePlacesChargerProvider.swift; sourceTree = "<group>"; };
 		528EC0678BF3A11F2059FDB9 /* VoltIQ/Views/CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/CalculatorView.swift; sourceTree = "<group>"; };
 		572DC8D5A2A8E56751BB838A /* VoltIQ/PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = VoltIQ/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		68293D5A625BE566762F2AE7 /* VoltIQ/Core/ConnectorFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ConnectorFormatting.swift; sourceTree = "<group>"; };
 		6C50CC45C648CEF11D939104 /* VoltIQ/Core/Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/Models.swift; sourceTree = "<group>"; };
 		6F27476088B18C1727CA111A /* VoltIQ/Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VoltIQ/Assets.xcassets; sourceTree = "<group>"; };
 		73022774A278CC06331B05ED /* VoltIQTests/PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/PersistenceTests.swift; sourceTree = "<group>"; };
+		7DC1A841A82981F8C39575BB /* Config/App.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config/App.xcconfig; sourceTree = "<group>"; };
 		99C5116DBEEC2B8ADE9EC144 /* VoltIQ/Views/Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Views/Theme.swift; sourceTree = "<group>"; };
 		A4A0FA83AD2D17642212A294 /* VoltIQ/Core/ChargerDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ChargerDiscovery.swift; sourceTree = "<group>"; };
 		AA92987EE86131305BD9083B /* VoltIQ/Services/MapKitChargerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Services/MapKitChargerProvider.swift; sourceTree = "<group>"; };
@@ -64,6 +72,7 @@
 		B9074B1E49FB5A6E382E802D /* VoltIQ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = VoltIQ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00F8A773942D94746B0736D /* VoltIQTests/CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/CalculatorTests.swift; sourceTree = "<group>"; };
 		D8F53D7D02F2BCB630FFE4E9 /* VoltIQ/Services/CoreLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Services/CoreLocationService.swift; sourceTree = "<group>"; };
+		DAEA912B94C7305B91CC4EC6 /* VoltIQTests/ConnectorDetailsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/ConnectorDetailsTests.swift; sourceTree = "<group>"; };
 		E48D32D724A5CCD0FB02D822 /* VoltIQ/VoltIQApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/VoltIQApp.swift; sourceTree = "<group>"; };
 		EDE0947A53BA1D5DA4A8622D /* VoltIQ/Core/ChargingCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQ/Core/ChargingCalculator.swift; sourceTree = "<group>"; };
 		F4241E2C211518858B5DA1B0 /* VoltIQTests/ChargerDiscoveryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoltIQTests/ChargerDiscoveryTests.swift; sourceTree = "<group>"; };
@@ -94,9 +103,12 @@
 				B18743CD1CD7CD448877201D /* VoltIQ/Core/ChargeLog.swift */,
 				A4A0FA83AD2D17642212A294 /* VoltIQ/Core/ChargerDiscovery.swift */,
 				EDE0947A53BA1D5DA4A8622D /* VoltIQ/Core/ChargingCalculator.swift */,
+				68293D5A625BE566762F2AE7 /* VoltIQ/Core/ConnectorFormatting.swift */,
 				2E48EEFD13CBAA562767106A /* VoltIQ/Core/DeviceRepository.swift */,
+				24AA689CF93B7C93621E7823 /* VoltIQ/Core/GooglePlaces.swift */,
 				6C50CC45C648CEF11D939104 /* VoltIQ/Core/Models.swift */,
 				D8F53D7D02F2BCB630FFE4E9 /* VoltIQ/Services/CoreLocationService.swift */,
+				4FD8189966B58326F7BF9788 /* VoltIQ/Services/GooglePlacesChargerProvider.swift */,
 				AA92987EE86131305BD9083B /* VoltIQ/Services/MapKitChargerProvider.swift */,
 				528EC0678BF3A11F2059FDB9 /* VoltIQ/Views/CalculatorView.swift */,
 				36908386E2EEAFE97A2CE3AE /* VoltIQ/Views/ChargeFormView.swift */,
@@ -118,6 +130,7 @@
 			children = (
 				13DC383B5E32270AF16099DF /* VoltIQ */,
 				9AE740F07CC54A0881FC8633 /* VoltIQTests */,
+				F4D8E12FC6B365FF1DB97352 /* Config */,
 				FBDC4F23F93125BBEEAE800C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -128,9 +141,18 @@
 				D00F8A773942D94746B0736D /* VoltIQTests/CalculatorTests.swift */,
 				2713143B0223166AB55FA981 /* VoltIQTests/ChargeLogTests.swift */,
 				F4241E2C211518858B5DA1B0 /* VoltIQTests/ChargerDiscoveryTests.swift */,
+				DAEA912B94C7305B91CC4EC6 /* VoltIQTests/ConnectorDetailsTests.swift */,
 				73022774A278CC06331B05ED /* VoltIQTests/PersistenceTests.swift */,
 			);
 			name = VoltIQTests;
+			sourceTree = "<group>";
+		};
+		F4D8E12FC6B365FF1DB97352 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				7DC1A841A82981F8C39575BB /* Config/App.xcconfig */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 		FBDC4F23F93125BBEEAE800C /* Products */ = {
@@ -236,9 +258,12 @@
 				D5F8F43EAD6A5D82D6116A93 /* VoltIQ/Core/ChargeLog.swift in Sources */,
 				8488C42972D3C265A0372E0A /* VoltIQ/Core/ChargerDiscovery.swift in Sources */,
 				C638D1B10AC35790620E65FB /* VoltIQ/Core/ChargingCalculator.swift in Sources */,
+				4D6784BEF5CC6FA7581A4C7B /* VoltIQ/Core/ConnectorFormatting.swift in Sources */,
 				8A14B231AC1E2FB2BEAD46CD /* VoltIQ/Core/DeviceRepository.swift in Sources */,
+				8B3F8651CCB12BF4E45F2DAF /* VoltIQ/Core/GooglePlaces.swift in Sources */,
 				D9EF99FBF14291969B2B46C4 /* VoltIQ/Core/Models.swift in Sources */,
 				C519C46CD1941477E1833AB2 /* VoltIQ/Services/CoreLocationService.swift in Sources */,
+				45944EBF8C724B6E63AD8185 /* VoltIQ/Services/GooglePlacesChargerProvider.swift in Sources */,
 				5837E2A317A0C58EBB4039FE /* VoltIQ/Services/MapKitChargerProvider.swift in Sources */,
 				DB8F8D46382D09B9BBF5883D /* VoltIQ/Views/CalculatorView.swift in Sources */,
 				B32ADAC3A4BE52F6FCF16A03 /* VoltIQ/Views/ChargeFormView.swift in Sources */,
@@ -258,6 +283,7 @@
 				370491C374968A9B62BDA13A /* VoltIQTests/CalculatorTests.swift in Sources */,
 				B33438B265105AAAA715B534 /* VoltIQTests/ChargeLogTests.swift in Sources */,
 				23E8155EB80A13E6F0E1C653 /* VoltIQTests/ChargerDiscoveryTests.swift in Sources */,
+				F03E24AA83236AF1C90EC797 /* VoltIQTests/ConnectorDetailsTests.swift in Sources */,
 				651AB154BA6A6EE62D92E836 /* VoltIQTests/PersistenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,7 +305,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RAV5838ARK;
 				INFOPLIST_FILE = VoltIQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -296,6 +321,7 @@
 		};
 		89E1FD6268CC0F221A2BE178 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DC1A841A82981F8C39575BB /* Config/App.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -333,6 +359,7 @@
 		};
 		E6DE6C99132752C914FEF632 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DC1A841A82981F8C39575BB /* Config/App.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -354,6 +381,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RAV5838ARK;
 				INFOPLIST_FILE = VoltIQ/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
